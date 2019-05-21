@@ -6,10 +6,10 @@
     <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
-    <!--<script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>-->
     <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
     <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
-    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <title>Hello, AMPs</title>
     <link rel="canonical" href="https://amp.dev/zh_cn/documentation/guides-and-tutorials/start/create/basic_markup">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -28,7 +28,7 @@
     <style amp-custom>
       html{color:rgba(0,0,0,.87)}::-moz-selection{background:none;text-shadow:none}::selection{background:none;text-shadow:none}.hidden{display:none}@media print{*,*:before,*:after{background:transparent;color:#000;box-shadow:none}tr{page-break-inside:avoid}p{orphans:3;widows:3}}.mdl-button{-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:rgba(255,255,255,0)}html{width:100%;height:100%;-ms-touch-action:manipulation;touch-action:manipulation}body{width:100%;min-height:100%;}html,body{font-family:"Open Sans","Arial",sans-serif;font-size:14px;font-weight:400;line-height:20px;}h5,h6,p{padding:0}h5{font-size:20px;font-weight:500;line-height:1;letter-spacing:.02em}h5,h6{font-family:"Open Sans","Helvetica","Arial",sans-serif;margin:24px 0 16px}h6{font-size:16px;letter-spacing:.04em}h6,p{font-weight:400;line-height:24px}p{font-size:14px;letter-spacing:0; margin:0;}
       div,h1,h2{ margin:0; padding:0px; }ul,li{list-style: none; margin:0; padding:0;}
-      input,textarea{font-family:"Open Sans","Arial",sans-serif;}
+      input,textarea{font-family:"Open Sans","Arial",sans-serif;padding: 0}
       a { color:#333; text-decoration:none; }
       amp-img { max-height:inherit; max-width:inherit; }
       .header{display: block;width: 100%;box-sizing: border-box;position: relative;top: 0;z-index: 100;height: 96px;}
@@ -65,7 +65,7 @@
     	.country_list_close i{display: inline-block;font-style: normal;color: #666;font-size: 14px;vertical-align: middle;line-height: 22px;}
     	.country_list_close em{margin-top: 4px;}
     	.country_region_sidebar_main:after{content: "";left: 0;top: 0;position: absolute;width: 100%;height: 50px;pointer-events: none;background: transparent;-webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);}
-    	.country_list_close b{display: inline-block;width: 20px;height: 20px;float: right;background-image: url(images/bottom.svg);background-size: 100%;background-position: center;background-repeat: no-repeat;transition: all .2s;}
+    	.country_list_close b{width: 20px;height: 20px;float: right;background-image: url(images/bottom.svg);background-size: 100%;background-position: center;background-repeat: no-repeat;transition: all .2s;}
     	.country_list_close b.show{transform: rotate(180deg);}
     	.country_list_all_search{padding: 0 15px 15px;background-color: #fff;border-bottom: 1px solid #eee;box-sizing: border-box;}
     	.country_list_all_search input{height: 34px;border: none;border-radius: 2px;background-color: #eee;width: 100%;text-indent: 15px;font-size: 13px;color: #333;-webkit-appearance: none;outline: none;display: block;}
@@ -85,7 +85,27 @@
     	.sidebar_categories_list a{display: block;}
     	.sidebar_first_help{padding: 10px 0;height:350px;}
     	#sidebar-second-help ul{padding: 10px 0;}
-    </style>
+		amp-img { max-height:inherit; max-width:inherit; }
+		.banner{width: 100%;height: auto;}
+		.dot{position: absolute;bottom: 10px;width: 100%;text-align: center;}
+		.dot span { margin: 0 5px; width: 8px; height: 8px; display: inline-block; border-radius: 100%; background: #fff; opacity: .3; }
+		amp-selector [option][selected] { cursor: auto; outline: none; height: 8px; display: inline-block; border-radius: 100%; background: #fff; opacity: 1; }
+		.dot span.active { margin: 0 5px; width: 8px; height: 8px; display: inline-block; border-radius: 100%; background: #fff; opacity: 1; }
+    	.amp-carousel-button{display: none;}
+		.header_search{padding: 0 0 10px;transition: all .3s;width: 100%;box-sizing: border-box;margin: 0 auto;position: relative;z-index: 100;}
+		.header_search span,.search_top_ipt span{position: absolute;left: 9px;top: 7px;width: 20px;height: 20px;background-image: url(images/Search.svg);background-size: 100%;}
+		.header_search input,.search_top_ipt input{height: 34px;border: none;outline: none;background-color: #eee;width: 100%;border-radius: 3px;text-indent: 35px;color: #666;font-size: 14px;}
+		.search-sidebar{width: 100%;max-width: 100%;background-color: #fff;}
+		.search_top{box-sizing: border-box;padding: 8px 10px;position: relative;height: 50px;border-bottom: 2px solid #dfdfdf;margin-bottom: 20px;}
+		.search_top em{position: absolute;top: 12px;left: 15px;z-index: 10;width: 24px;height: 32px;background-image: url(images/left.svg);background-size: 100%;background-repeat: no-repeat;}
+		.search_top_ipt{padding-left: 34px;height: 100%;position: relative;}
+		.search_top_ipt span{left: 40px;}
+		.search_top_ipt i{position: absolute;right: 5px;top: 7px;width: 20px;height: 20px;background-image: url(images/close.svg);background-size: 100%;}
+
+
+
+	
+	</style>
   </head>
   <body>
 	<amp-state id="open-close-side">
@@ -94,6 +114,13 @@
          "changeClass": ""
     }
    </script>
+	</amp-state>
+	<amp-state id="searchState">
+		<script type="application/json">
+			{
+				"inputValue": ""
+			}
+		</script>
 	</amp-state>
   	<header class="header">
   		<div class="header_main">
@@ -109,9 +136,31 @@
   				<div class="header_cart">
   					<a href="https://www.fs.com/index.php?main_page=shopping_cart"></a>
   				</div>
-  			</div>
+			  </div>
+			  <div class="header_search" tabindex="0" role='button' on="tap:sidebar-search.open">
+					<span></span>
+					<input type="text" placeholder="Search...">
+			  </div>
   		</div>
-  	</header>
+	</header>
+	  
+	<amp-carousel type="slides" layout="responsive" autoplay loop class="banner" width="960" height="540" on="slideChange:AMP.setState({selected: {slide: event.index}})" [slide]="selected.slide">
+		<amp-img src="https://img-en.fs.com/images/home_custom/20190423112531_925.jpg" width="960" height="540"></amp-img>
+		<amp-img src="https://img-en.fs.com/images/home_custom/20181127155625_288.jpg" width="960" height="540"></amp-img>
+		<amp-img src="https://img-en.fs.com/images/home_custom/m-banner.jpg" width="960" height="540"></amp-img>
+		<amp-img src="https://img-en.fs.com/images/home_custom/20181207113001_159.jpg" width="960" height="540"></amp-img>
+		<amp-img src="https://img-en.fs.com/images/home_custom/20190304102750_639.jpg" width="960" height="540"></amp-img>
+	  </amp-carousel>
+	  <amp-selector on="select:AMP.setState({selected: {slide: event.targetOption}})" [selected]="selected.slide">
+		<div class="dot">
+		  <span option="0" selected></span>
+		  <span option='1'></span>
+		  <span option='2'></span>
+		  <span option='3'></span>
+		  <span option='4'></span>
+		</div>
+	  </amp-selector>
+	
   	<amp-sidebar id='sidebar-first' class="header_sidebar" layout='nodisplay' side='left'>
   		<div class="sidebar_first_country_account">
   			<div class="sidebar_first_country" tabindex="0" role='button' on="tap:sidebar-country.open">
@@ -477,6 +526,24 @@
 		</ul>
 	</amp-sidebar>
 
+	<amp-sidebar id='sidebar-second-help' layout='nodisplay' side='right' class='categories-sidebar'>
+		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-help.close">
+			<i class="arrow-left"></i>
+			Main Menu
+		</div>
+		<ul>
+			<amp-list layout='responsive' width="300" height="100" [src]="helpSrc" src="https://mc471066223.github.io/AMP/api/help/support.json">
+				<template type='amp-mustache'>
+					<li class="sidebar_categories_list">
+						<a href="{{url}}">
+							{{name}}
+						</a>
+					</li>
+				</template>
+			</amp-list>
+		</ul>
+	</amp-sidebar> 
+
   	<amp-sidebar id='sidebar-third-categories' layout='nodisplay' side='right' class="categories-sidebar">
   		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-networking.close">
   			<i class="arrow-left"></i>
@@ -499,22 +566,15 @@
   		</ul>
   	</amp-sidebar>
   
-  	<amp-sidebar id='sidebar-second-help' layout='nodisplay' side='right' class='categories-sidebar'>
-  		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-help.close">
-  			<i class="arrow-left"></i>
-  			Main Menu
-  		</div>
-  		<ul>
-  			<amp-list layout='responsive' width="300" height="100" [src]="helpSrc" src="https://mc471066223.github.io/AMP/api/help/support.json">
-  				<template type='amp-mustache'>
-  					<li class="sidebar_categories_list">
-	  					<a href="{{url}}">
-	  						{{name}}
-	  					</a>
-	  				</li>
-  				</template>
-  			</amp-list>
-  		</ul>
-  	</amp-sidebar> 
+	<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' class="search-sidebar">
+		<div class="search_top">
+			<em></em>
+			<div class="search_top_ipt">
+				<span></span>
+				<input type="text" placeholder="Search..." [value]="searchState.inputValue" on="input-throttled:AMP.setState({searchState:{inputValue:event.value}})">
+				<i tabindex="0" role="button" on="tap:AMP.setState({searchState:{inputValue:''}})"></i>
+			</div>
+		</div>
+	</amp-sidebar>
   </body>
 </html>
