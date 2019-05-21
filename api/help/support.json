@@ -1,0 +1,21 @@
+{
+	"items":[{
+			    "name": "Help Center",
+			    "url": "\/service/help_center.html"
+			},{
+			    "name": "Payment Methods",
+			    "url": "\/payment_methods.html"
+			},
+			{
+			    "name": "Shipping & Delivery",
+			    "url": "\/shipping_delivery.html"
+			},
+			{
+			    "name": "Return Policy",
+			    "url": "\/policies/day_return_policy.html"
+			},
+			{
+			    "name": "Warranty",
+			    "url": "\/policies/warranty.html"
+			}]
+}

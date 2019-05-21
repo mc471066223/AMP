@@ -1,0 +1,25 @@
+{
+	"items":[{
+			    "name": "View All",
+			    "url": "\/c/ethernet-switches-3079"
+			},{
+			    "name": "1G & PoE Switches",
+			    "url": "\/c\/1g-switches-3255"
+			},
+			{
+			    "name": "10G Switches",
+			    "url": "\/c\/10g-switches-3256"
+			},
+			{
+			    "name": "25G Switches",
+			    "url": "\/c\/25g-switches-3404"
+			},
+			{
+			    "name": "40G Switches",
+			    "url": "\/c\/40g-switches-3257"
+			},
+			{
+			    "name": "100G Switches",
+			    "url": "\/c\/100g-switches-3258"
+			}]
+}

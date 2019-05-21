@@ -1,0 +1,292 @@
+<!doctype html>
+<html ⚡ lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <!--<script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>-->
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <title>Hello, AMPs</title>
+    <link rel="canonical" href="https://amp.dev/zh_cn/documentation/guides-and-tutorials/start/create/basic_markup">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": [
+          "logo.jpg"
+        ]
+      }
+    </script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+      html{color:rgba(0,0,0,.87)}::-moz-selection{background:#none;text-shadow:none}::selection{background:none;text-shadow:none}.hidden{display:none}@media print{*,*:before,*:after{background:transparent;color:#000;box-shadow:none}tr{page-break-inside:avoid}p{orphans:3;widows:3}}.mdl-button{-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:rgba(255,255,255,0)}html{width:100%;height:100%;-ms-touch-action:manipulation;touch-action:manipulation}body{width:100%;min-height:100%;}html,body{font-family:"Open Sans","Arial",sans-serif;font-size:14px;font-weight:400;line-height:20px;}h5,h6,p{padding:0}h5{font-size:20px;font-weight:500;line-height:1;letter-spacing:.02em}h5,h6{font-family:"Open Sans","Helvetica","Arial",sans-serif;margin:24px 0 16px}h6{font-size:16px;letter-spacing:.04em}h6,p{font-weight:400;line-height:24px}p{font-size:14px;letter-spacing:0; margin:0;}
+      div,h1,h2{ margin:0; padding:0px; }ul,li{list-style: none; margin:0; padding:0;}
+      input,textarea{font-family:"Open Sans","Arial",sans-serif;}
+      a { color:#333; text-decoration:none; }
+      amp-img { max-height:inherit; max-width:inherit; }
+      .header{display: block;width: 100%;box-sizing: border-box;position: relative;top: 0;z-index: 100;height: 96px;}
+    	.header_main {width: 100%;position: fixed;box-sizing: border-box;padding: 0 15px;background-color: #fff;border-bottom: 2px solid #dfdfdf;}
+    	.header_top{height: 50px;text-align: center;position: relative;z-index: 100;}
+    	.header_top_list{position: absolute;color: #888;text-decoration: none;top: 16px;left: 0;font-size: 30px;}
+    	.header_top_list .line{width: 23px;height: 2px;background-color: #3b3e40;display: block;margin: 6px auto;-webkit-transition: all .3s ease-in-out;-o-transition: all .3s ease-in-out;transition: all .3s ease-in-out;border-radius: 2px;}
+    	.header_top_list .line:first-child{margin-top: 0;}
+    	.is-open{position: absolute;color: #888;text-decoration: none;top: 16px;left: 0;font-size: 30px;}
+    	.is-open .line{width: 23px;height: 2px;background-color: #3b3e40;display: block;margin: 6px auto;-webkit-transition: all .3s ease-in-out;-o-transition: all .3s ease-in-out;transition: all .3s ease-in-out;border-radius: 2px;}
+    	.is-open .line:first-child{margin-top: 0;transform: translateY(8px) rotate(45deg);}
+    	.is-open .line:nth-child(2){opacity: 0;}
+    	.is-open .line:last-child{transform: translateY(-8px) rotate(-45deg);}
+    	.header_logo{display: inline-block;width: 140px;height: 34px;margin: 8px 0;background: url(https://img-en.fs.com/includes/templates/fiberstore/images/fs.com-logo.svg) 50% 50% no-repeat;background-size: cover;}
+    	.header_sidebar{width: 100%;max-width: 100%;top:50px;background-color: #fff;border-top: 2px solid #dedede;}
+    	.header_cart{position: absolute;z-index: 1;top: 9px;right: -3px;}
+    	.header_cart a{display: inline-block;width: 32px;height: 32px;background-image: url(images/Cart.svg);background-size: cover;}
+    	.i-amphtml-sidebar-mask{display: none;}
+    	.sidebar_first_country_account{padding: 10px 0;border-bottom: 1px solid #e5e5e5;}
+    	.sidebar_first_country, .sidebar_first_account{height: 48px;line-height: 48px;padding: 0 15px;}
+    	.af{background-position:0 0}.WW{background-position:-20px 0}.WW{background-position:-40px 0}.al{background-position:-60px 0}.WW{background-position:-80px 0}.dz{background-position:-100px 0}.as{background-position:-120px 0}.ad{background-position:-140px 0}.ao{background-position:-160px 0}.ai{background-position:-180px 0}.aq{background-position:-200px 0}.ag{background-position:-220px 0}.WW{background-position:-240px 0}.ar{background-position:-260px 0}.am{background-position:-280px 0}.aw{background-position:-300px 0}.WW{background-position:-320px 0}.au,.hm{background-position:-340px 0}.at{background-position:-360px 0}.az{background-position:-380px 0}.bs{background-position:-400px 0}.bh{background-position:-420px 0}.bd{background-position:-440px 0}.bb{background-position:-460px 0}.WW{background-position:-480px 0}.by{background-position:0 -20px}.be{background-position:-20px -20px}.bz{background-position:-40px -20px}.bj{background-position:-60px -20px}.bm{background-position:-80px -20px}.bt{background-position:-100px -20px}.bo{background-position:-120px -20px}.ba{background-position:-140px -20px}.bw{background-position:-160px -20px}.WW{background-position:-180px -20px}.br{background-position:-200px -20px}.io{background-position:-220px -20px}.bn{background-position:-240px -20px}.bg{background-position:-260px -20px}.bf{background-position:-280px -20px}.bi{background-position:-300px -20px}.kh{background-position:-320px -20px}.cm{background-position:-340px -20px}.ca{background-position:-360px -20px}.cv{background-position:-380px -20px}.WW{background-position:-400px -20px}.WW{background-position:-420px -20px}.ky{background-position:-440px -20px}.cf{background-position:-460px -20px}.td{background-position:-480px -20px}.cl{background-position:0 -40px}.cn{background-position:-20px -40px}.cx{background-position:-40px -40px}.WW{background-position:-60px -40px}.cc{background-position:-80px -40px}.co{background-position:-100px -40px}.WW{background-position:-120px -40px}.km{background-position:-140px -40px}.cg{background-position:-160px -40px}.WW{background-position:-180px -40px}.ck{background-position:-200px -40px}.cr{background-position:-220px -40px}.ci{background-position:-240px -40px}.hr{background-position:-260px -40px}.cu{background-position:-280px -40px}.WW{background-position:-300px -40px}.cy{background-position:-320px -40px}.cz{background-position:-340px -40px}.dk{background-position:-360px -40px}.dj{background-position:-380px -40px}.dm{background-position:-400px -40px}.do{background-position:-420px -40px}.ec{background-position:-440px -40px}.eg{background-position:-460px -40px}.sv{background-position:-480px -40px}.WW{background-position:0 -60px}.gq{background-position:-20px -60px}.er{background-position:-40px -60px}.ee{background-position:-60px -60px}.et{background-position:-80px -60px}.eu{background-position:-100px -60px}.fk{background-position:-120px -60px}.WW{background-position:-140px -60px}.WW{background-position:-160px -60px}.fj{background-position:-180px -60px}.fi,.ax{background-position:-200px -60px}.fr{background-position:-220px -60px}.tf{background-position:-240px -60px}.gf{background-position:-260px -60px}.ga{background-position:-280px -60px}.WW{background-position:-300px -60px}.gm{background-position:-320px -60px}.ge{background-position:-340px -60px}.de{background-position:-360px -60px}.gh{background-position:-380px -60px}.gi{background-position:-400px -60px}.gr{background-position:-420px -60px}.gl{background-position:-440px -60px}.gd{background-position:-460px -60px}.WW{background-position:-480px -60px}.gt{background-position:0 -80px}.gu{background-position:-20px -80px}.gg{background-position:-40px -80px}.gn{background-position:-60px -80px}.gw{background-position:-80px -80px}.gy{background-position:-100px -80px}.ht{background-position:-120px -80px}.WW{background-position:-140px -80px}.hn{background-position:-160px -80px}.hk{background-position:-180px -80px}.hu{background-position:-200px -80px}.WW{background-position:-220px -80px}.is{background-position:-240px -80px}.WW{background-position:-260px -80px}.in{background-position:-280px -80px}.id{background-position:-300px -80px}.ir{background-position:-320px -80px}.iq{background-position:-340px -80px}.ie{background-position:-360px -80px}.WW{background-position:-380px -80px}.WW{background-position:-400px -80px}.il{background-position:-420px -80px}.it{background-position:-440px -80px}.jm{background-position:-460px -80px}.jp{background-position:-480px -80px}.je{background-position:0 -100px}.jo{background-position:-20px -100px}.kz{background-position:-40px -100px}.ke{background-position:-60px -100px}.ki{background-position:-80px -100px}.WW{background-position:-100px -100px}.kw{background-position:-120px -100px}.kg{background-position:-140px -100px}.WW{background-position:-160px -100px}.lv{background-position:-180px -100px}.lb{background-position:-200px -100px}.ls{background-position:-220px -100px}.lr{background-position:-240px -100px}.WW{background-position:-260px -100px}.li{background-position:-280px -100px}.lt{background-position:-300px -100px}.lu{background-position:-320px -100px}.WW{background-position:-340px -100px}.mk{background-position:-360px -100px}.mg{background-position:-380px -100px}.mw{background-position:-400px -100px}.my{background-position:-420px -100px}.mv{background-position:-440px -100px}.ml{background-position:-460px -100px}.mt{background-position:-480px -100px}.mh{background-position:0 -120px}.mq{background-position:-20px -120px}.mr{background-position:-40px -120px}.mu{background-position:-60px -120px}.yt{background-position:-80px -120px}.mx{background-position:-100px -120px}.fm{background-position:-120px -120px}.md{background-position:-140px -120px}.mc{background-position:-160px -120px}.mn{background-position:-180px -120px}.me{background-position:-200px -120px}.ms{background-position:-220px -120px}.ma{background-position:-240px -120px}.mz{background-position:-260px -120px}.mm{background-position:-280px -120px}.na{background-position:-300px -120px}.WW{background-position:-320px -120px}.nr{background-position:-340px -120px}.np{background-position:-360px -120px}.an{background-position:-380px -120px}.nl{background-position:-400px -120px}.WW{background-position:-420px -120px}.nz{background-position:-440px -120px}.ni{background-position:-460px -120px}.ne{background-position:-480px -120px}.ng{background-position:0 -140px}.nu{background-position:-20px -140px}.nf{background-position:-40px -140px}.WW{background-position:-60px -140px}.WW{background-position:-80px -140px}.WW{background-position:-100px -140px}.mp{background-position:-120px -140px}.no,.bv{background-position:-140px -140px}.WW{background-position:-160px -140px}.WW{background-position:-180px -140px}.WW{background-position:-200px -140px}.om{background-position:-220px -140px}.WW{background-position:-240px -140px}.pk{background-position:-260px -140px}.pw{background-position:-280px -140px}.ps{background-position:-300px -140px}.pa{background-position:-320px -140px}.pg{background-position:-340px -140px}.py{background-position:-360px -140px}.pe{background-position:-380px -140px}.ph{background-position:-400px -140px}.pn{background-position:-420px -140px}.pl{background-position:-440px -140px}.pt{background-position:-460px -140px}.pr{background-position:-480px -140px}.qa{background-position:0 -160px}.WW{background-position:-20px -160px}.WW{background-position:-40px -160px}.ro{background-position:-60px -160px}.ru{background-position:-80px -160px}.rw{background-position:-100px -160px}.WW{background-position:-120px -160px}.WW{background-position:-140px -160px}.lc{background-position:-160px -160px}.WW{background-position:-180px -160px}.WW{background-position:-200px -160px}.ws{background-position:-220px -160px}.sm{background-position:-240px -160px}.st{background-position:-260px -160px}.sa{background-position:-280px -160px}.WW{background-position:-300px -160px}.sn{background-position:-320px -160px}.rs{background-position:-340px -160px}.sc{background-position:-360px -160px}.sl{background-position:-380px -160px}.sg{background-position:-400px -160px}.WW{background-position:-420px -160px}.sk{background-position:-440px -160px}.si{background-position:-460px -160px}.sb{background-position:-480px -160px}.so{background-position:0 -180px}.xs{background-position:-20px -180px}.za{background-position:-40px -180px}.WW{background-position:-60px -180px}.kp{background-position:-80px -180px}.WW{background-position:-100px -180px}.es{background-position:-120px -180px}.lk{background-position:-140px -180px}.kn{background-position:-160px -180px}.vc{background-position:-180px -180px}.sd{background-position:-200px -180px}.sr{background-position:-220px -180px}.sj{background-position:-240px -180px}.sz{background-position:-260px -180px}.se{background-position:-280px -180px}.ch{background-position:-300px -180px}.sy{background-position:-320px -180px}.WW{background-position:-340px -180px}.tw{background-position:-360px -180px}.tj{background-position:-380px -180px}.tz{background-position:-400px -180px}.th{background-position:-420px -180px}.tl{background-position:-440px -180px}.tg{background-position:-460px -180px}.tk{background-position:-480px -180px}.to{background-position:0 -200px}.tt{background-position:-20px -200px}.WW{background-position:-40px -200px}.tn{background-position:-60px -200px}.tr{background-position:-80px -200px}.tm{background-position:-100px -200px}.tc{background-position:-120px -200px}.tv{background-position:-140px -200px}.ug{background-position:-160px -200px}.ua{background-position:-180px -200px}.WW{background-position:-200px -200px}.WW{background-position:-220px -200px}.ae{background-position:-240px -200px}.gb,.gs,.im{background-position:-260px -200px}.WW{background-position:-280px -200px}.WW{background-position:-300px -200px}.us,.um{background-position:-320px -200px}.uy{background-position:-340px -200px}.uz{background-position:-360px -200px}.vu{background-position:-380px -200px}.va{background-position:-400px -200px}.ve{background-position:-420px -200px}.vn{background-position:-440px -200px}.vg{background-position:-460px -200px}.vi{background-position:-480px -200px}.WW{background-position:0 -220px}.WW{background-position:-20px -220px}.eh{background-position:-40px -220px}.WW{background-position:-60px -220px}.WW{background-position:-80px -220px}.ye{background-position:-100px -220px}.zm{background-position:-120px -220px}.zw{background-position:-140px -220px}.tp{background-position:-160px -220px}.fo{background-position:-180px -220px}.gp{background-position:-200px -220px}.kr{background-position:-220px -220px}.la{background-position:-240px -220px}.ly{background-position:-260px -220px}.mo{background-position:-280px -220px}.ic{background-position:-320px -220px}.cd{background-position:-340px -220px}.xy{background-position:-360px -220px}.pf{background-position:-380px -220px}.sh{background-position:-400px -220px}.re{background-position:-220px -60px}.pm{background-position:-220px -60px}.wf{background-position:-220px -60px}.nc{background-position:-220px -60px}
+    	.sidebar_first_country em,.country_list_close em{width: 16px;height: 16px;background-image: url(https://img-en.fs.com/includes/templates/fiberstore/images/country.png);background-repeat: no-repeat;float: left;margin-top: 16px;margin-right: 8px;}
+    	.sidebar_first_country span{font-size: 14px;color: #3b3e40;}
+    	.arrow-right{font-style: normal;float: right;text-align: center;width: 14px;height: 48px;background-image: url(images/right.svg);background-size: 100%;background-position: center;background-repeat: no-repeat;}
+			.arrow-left{font-style: normal;float: left;text-align: center;width: 14px;height: 48px;background-image: url(images/left.svg);background-size: 100%;background-position: center;background-repeat: no-repeat;}
+			.sidebar_first_account a{display: block;height: 48px;}
+			.sidebar_first_account a em{display: inline-block;vertical-align:middle;margin-right: 5px;background-image: url(images/Account.svg);background-size: 100%;width: 16px;height: 48px;background-repeat: no-repeat;background-position: center;}
+    	.sidebar_first_account a span{font-size: 14px;color:#3b3e40;display: inline-block;vertical-align: middle;}
+    	.country_region_sidebar{width: 100%;height: 100%;max-width: 100%;background-color: #f7f8f9;}
+    	.country_region_sidebar_tit{padding: 0 15px;height: 50px;background-color: #fff;position: relative;}
+    	.country_region_sidebar_close{line-height: 50px;z-index: 1;left: 15px;}
+    	.country_region_sidebar_tit h1{font-size: 18px;font-weight: 400;position: absolute;width: 100%;height: 100%;top: 0;left: 0;text-align: center;line-height: 50px;color: #333;}
+    	.country_list_close{padding:15px;border-bottom: none;box-sizing: border-box;background-color: #fff;border: none;}
+    	.country_list_close i{display: inline-block;font-style: normal;color: #666;font-size: 14px;vertical-align: middle;line-height: 22px;}
+    	.country_list_close em{margin-top: 4px;}
+    	.country_region_sidebar_main:after{content: "";left: 0;top: 0;position: absolute;width: 100%;height: 50px;pointer-events: none;background: transparent;-webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);}
+    	.country_list_close b{display: inline-block;width: 20px;height: 20px;float: right;background-image: url(images/bottom.svg);background-size: 100%;background-position: center;background-repeat: no-repeat;transition: all .2s;}
+    	.country_list_close b.show{transform: rotate(180deg);}
+    	.country_list_all_search{padding: 0 15px 15px;background-color: #fff;border-bottom: 1px solid #eee;}
+    	.country_list_all_search input{height: 34px;border: none;border-radius: 2px;background-color: #eee;width: 100%;text-indent: 15px;font-size: 13px;color: #333;}
+    	.country-list{background-color: #fff;}
+    	.country-list li{padding: 0 15px;border-bottom: none;box-sizing: border-box;}
+    	.country-list-name{display: block;border-bottom: 1px solid #eee;padding: 15px 0;}
+    	.country-list-name em{display: inline-block;width: 16px;height: 16px;padding-left: 0;margin-right: 6px;vertical-align: middle;    background-image: url(https://img-en.fs.com/includes/templates/fiberstore/images/country.png);background-repeat: no-repeat;}
+    	.country-list-name i{display: inline-block;font-style: normal;color: #666;font-size: 14px;vertical-align: middle;line-height: 22px;}
+    	.country-list li:last-child .country-list-name{border: none;}
+    	.sidebar_first_categories{padding: 10px 0;border-bottom: 1px solid #e5e5e5;}
+    	.sidebar_first_categories_tit,.sidebar_third_toSecond{font-size: 16px;color: #333;font-weight: 400;line-height: 48px;padding: 0 15px;}
+    	.sidebar_categories_list{padding: 0 15px;line-height: 48px;font-size: 14px;color: #3b3e40;}
+    	.categories-sidebar{width: 100%;max-width: 100%;top:50px;background-color: #fff;border-top: 2px solid #dedede;}
+    	.categories-sidebar-back-first{padding: 10px 15px;font-size: 14px;color: #666;line-height: 48px;border-bottom: 1px solid #e5e5e5;}
+    	.sidebar_second_categories_tit{font-size: 16px;color: #333;font-weight: 400;padding: 10px 15px 0;line-height: 48px;}
+    	.sidebar_third_toSecond{padding-top: 10px;}
+    	.sidebar_categories_list a{display: block;}
+    	.sidebar_first_help{padding: 10px 0 50px;}
+    	#sidebar-second-help ul{padding: 10px 0;}
+    </style>
+  </head>
+  <body>
+	<amp-state id="open-close-side">
+   <script type="application/json">
+    {
+         "changeClass": ""
+    }
+   </script>
+	</amp-state>
+  	<header class="header">
+  		<div class="header_main">
+  			<div class="header_top">
+  				<div class="header_top_list" [class]="visible ? 'is-open' : 'header_top_list'" tabindex="0" role='button' on="tap:AMP.setState({visible: !visible}),sidebar-first.toggle,sidebar-second-networking.close">
+  					<span class="line header_top_list_first_line"></span>
+            <span class="line header_top_list_second_line"></span>
+            <span class="line header_top_list_third_line"></span>
+  				</div>
+  				<a href="https://www.fs.com" class="header_logo">
+  					
+  				</a>
+  				<div class="header_cart">
+  					<a href="https://www.fs.com/index.php?main_page=shopping_cart"></a>
+  				</div>
+  			</div>
+  		</div>
+  	</header>
+  	<amp-sidebar id='sidebar-first' class="header_sidebar" layout='nodisplay' side='left'>
+  		<div class="sidebar_first_country_account">
+  			<div class="sidebar_first_country" tabindex="0" role='button' on="tap:sidebar-country.open">
+  				<em class="us"></em>
+  				<span>United States / $ USD</span>
+  				<i class="arrow-right"></i>
+  			</div>
+  			<div class="sidebar_first_account">
+  				<a href="https://www.fs.com/index.php?main_page=login">
+  					<em></em>
+  					<span>Account / Sign in</span>
+  					<i class="arrow-right"></i>
+  				</a>
+  			</div>
+  		</div>
+  		<div class="sidebar_first_categories">
+  			<h2 class="sidebar_first_categories_tit">All Categories</h2>
+  			<ul>
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-networking.open">
+  					Networking
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list">
+  					Fiber Optic Transceivers
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list">
+  					Fiber Optic Cables
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list">
+  					Racks & Enclosures
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list">
+  					WDM & Optical Access
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list">
+  					Cat5e/Cat6/Cat7/Cat8
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list">
+  					Testers & Tools
+  					<i class="arrow-right"></i>
+  				</li>
+  			</ul>
+  		</div>
+  		<div class="sidebar_first_help">
+  			<h2 class="sidebar_first_categories_tit">Help & Setting</h2>
+  			<ul>
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-help.open,AMP.setState({helpSrc:'/Work/Date/2019/5月/amp/api/help/support.json'})">
+  					Support
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-help.open,AMP.setState({helpSrc:'/Work/Date/2019/5月/amp/api/help/company.json'})">
+  					Company
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-help.open,AMP.setState({helpSrc:'/Work/Date/2019/5月/amp/api/help/quick.json'})">
+  					Quick Access
+  					<i class="arrow-right"></i>
+  				</li>
+  			</ul>
+  		</div>
+  	</amp-sidebar>
+  	<amp-sidebar id='sidebar-country' layout='nodisplay' side='left' class="country_region_sidebar">
+  		<div class="country_region_sidebar_tit">
+  			<div class="country_region_sidebar_close is-open" tabindex="0" role='button' on="tap:sidebar-country.close">
+  				<span class="line header_top_list_first_line"></span>
+          <span class="line header_top_list_second_line"></span>
+          <span class="line header_top_list_third_line"></span>
+  			</div>
+  			<h1>Select Country/Region</h1>
+  		</div>
+  		<div class="country_region_sidebar_main">
+  			<amp-accordion animate class="country-choose" id='accordion-country-choose'>
+  				<section id='accordion-country-choose-section'>
+  					<header class="country_list_close">
+	  					<div tabindex="0" role='button' on="tap:accordion-country-choose.toggle(section=accordion-country-choose-section),AMP.setState({countryShow:!countryShow})">
+	  						<em class="us"></em>
+		  					<i>United States</i>
+		  					<b [class]="countryShow ? 'show' : 'hide'"></b>
+	  					</div>
+	  				</header>
+	  				<div class="country_list_all">
+	  					<div class="country_list_all_search">
+	  						<input type="text" placeholder="Select Country/Region" />
+	  					</div>
+	  					<ul class="country-list">
+	  						<li class="">
+	  							<span class="country-list-name">
+	  								<em class="us"></em>
+	  								<i>United States</i>
+	  							</span>
+	  						</li>
+	  					</ul>
+	  				</div>
+  				</section>
+  			</amp-accordion>
+  		</div>
+  	</amp-sidebar>
+  
+  	<amp-sidebar id='sidebar-second-networking' layout='nodisplay' side='right' class='categories-sidebar'>
+  		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-networking.close">
+  			<i class="arrow-left"></i>
+  			Main Menu
+  		</div>
+  		<h2 class="sidebar_second_categories_tit">Networking</h2>
+  		<ul>
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'/Work/Date/2019/5月/amp/api/categories/network/one.json'})">
+  					Network Switches
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'/Work/Date/2019/5月/amp/api/categories/network/two.json'})">
+  					Data Center Switches
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list">
+  					PDU, UPS, Power System
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list">
+  					Network Adapters
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list">
+  					Routers, Servers
+  					<i class="arrow-right"></i>
+  				</li>
+  				<li class="sidebar_categories_list">
+  					Media Converters, KVM, TAP
+  					<i class="arrow-right"></i>
+  				</li>
+  			</ul>
+  	</amp-sidebar>
+  	
+  	<amp-sidebar id='sidebar-third-categories' layout='nodisplay' side='right' class="categories-sidebar">
+  		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-networking.close">
+  			<i class="arrow-left"></i>
+  			Main Menu
+  		</div>
+  		<h2 class="sidebar_third_toSecond" tabindex="0" role='button' on='tap:sidebar-third-categories.close'>
+  			<i class="arrow-left"></i>
+  			Go back
+  		</h2>
+  		<ul>
+	  		<amp-list layout='responsive' width="300" height="100" [src]="categories" src="/Work/Date/2019/5月/amp/api/categories/network/one.json">
+	  			<template type='amp-mustache'>
+	  				<li class="sidebar_categories_list">
+	  					<a href="{{url}}">
+	  						{{name}}
+	  					</a>
+	  				</li>
+	  			</template>
+	  		</amp-list>
+  		</ul>
+  	</amp-sidebar>
+  
+  	<amp-sidebar id='sidebar-second-help' layout='nodisplay' side='right' class='categories-sidebar'>
+  		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-help.close">
+  			<i class="arrow-left"></i>
+  			Main Menu
+  		</div>
+  		<ul>
+  			<amp-list layout='responsive' width="300" height="100" [src]="helpSrc" src="/Work/Date/2019/5月/amp/api/help/support.json">
+  				<template type='amp-mustache'>
+  					<li class="sidebar_categories_list">
+	  					<a href="{{url}}">
+	  						{{name}}
+	  					</a>
+	  				</li>
+  				</template>
+  			</amp-list>
+  		</ul>
+  	</amp-sidebar> 
+  </body>
+</html>

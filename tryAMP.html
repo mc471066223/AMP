@@ -1,0 +1,55 @@
+<!doctype html>
+<html ⚡ lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <title>Hello, AMPs</title>
+    <link rel="canonical" href="https://amp.dev/zh_cn/documentation/guides-and-tutorials/start/create/basic_markup">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": [
+          "logo.jpg"
+        ]
+      }
+    </script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style amp-custom>
+      html{color:rgba(0,0,0,.87)}::-moz-selection{background:#none;text-shadow:none}::selection{background:none;text-shadow:none}.hidden{display:none}@media print{*,*:before,*:after{background:transparent;color:#000;box-shadow:none}tr{page-break-inside:avoid}p{orphans:3;widows:3}}.mdl-button{-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:rgba(255,255,255,0)}html{width:100%;height:100%;-ms-touch-action:manipulation;touch-action:manipulation}body{width:100%;min-height:100%;}html,body{font-family:"Open Sans","Arial",sans-serif;font-size:14px;font-weight:400;line-height:20px;}h5,h6,p{padding:0}h5{font-size:20px;font-weight:500;line-height:1;letter-spacing:.02em}h5,h6{font-family:"Open Sans","Helvetica","Arial",sans-serif;margin:24px 0 16px}h6{font-size:16px;letter-spacing:.04em}h6,p{font-weight:400;line-height:24px}p{font-size:14px;letter-spacing:0; margin:0;}
+      div { margin:0; padding:0px; }ul,li{list-style: none; margin:0; padding:0;}
+      a { color:#333; text-decoration:none; }
+      amp-img { max-height:inherit; max-width:inherit; }
+      .banner{width: 100%;height: auto;}
+      .dot{position: absolute;bottom: 10px;width: 100%;text-align: center;}
+      .dot span { margin: 0 5px; width: 8px; height: 8px; display: inline-block; border-radius: 100%; background: #fff; opacity: .3; }
+      amp-selector [option][selected] { cursor: auto; outline: none; height: 8px; display: inline-block; border-radius: 100%; background: #fff; opacity: 1; }
+      .dot span.active { margin: 0 5px; width: 8px; height: 8px; display: inline-block; border-radius: 100%; background: #fff; opacity: 1; }
+    	.amp-carousel-button{display: none;}
+    </style>
+  </head>
+  <body>
+    <amp-carousel type="slides" layout="responsive" autoplay loop class="banner" width="960" height="540" on="slideChange:AMP.setState({selected: {slide: event.index}})" [slide]="selected.slide">
+      <amp-img src="https://img-en.fs.com/images/home_custom/20190423112531_925.jpg" width="960" height="540"></amp-img>
+      <amp-img src="https://img-en.fs.com/images/home_custom/20181127155625_288.jpg" width="960" height="540"></amp-img>
+      <amp-img src="https://img-en.fs.com/images/home_custom/m-banner.jpg" width="960" height="540"></amp-img>
+      <amp-img src="https://img-en.fs.com/images/home_custom/20181207113001_159.jpg" width="960" height="540"></amp-img>
+      <amp-img src="https://img-en.fs.com/images/home_custom/20190304102750_639.jpg" width="960" height="540"></amp-img>
+    </amp-carousel>
+    <amp-selector on="select:AMP.setState({selected: {slide: event.targetOption}})" [selected]="selected.slide">
+      <div class="dot">
+        <span option="0" selected></span>
+        <span option='1'></span>
+        <span option='2'></span>
+        <span option='3'></span>
+        <span option='4'></span>
+      </div>
+    </amp-selector>
+  </body>
+</html>

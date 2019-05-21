@@ -1,0 +1,21 @@
+{
+	"items":[{
+			    "name": "View All",
+			    "url": "\/c/ethernet-switches-3079"
+			},{
+			    "name": "Cumulus OS Switches",
+			    "url": "\/c/cumulus-os-switches-3500"
+			},
+			{
+			    "name": "FS OS Switches",
+			    "url": "\/c/fs-os-switches-3501"
+			},
+			{
+			    "name": "ICOS OS Switches",
+			    "url": "\/c/icos-os-switches-3502"
+			},
+			{
+			    "name": "Bare Metal Switches",
+			    "url": "\/c/bare-metal-switches-3503"
+			}]
+}
