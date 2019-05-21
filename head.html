@@ -26,7 +26,7 @@
     </script>
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
-      html{color:rgba(0,0,0,.87)}::-moz-selection{background:#none;text-shadow:none}::selection{background:none;text-shadow:none}.hidden{display:none}@media print{*,*:before,*:after{background:transparent;color:#000;box-shadow:none}tr{page-break-inside:avoid}p{orphans:3;widows:3}}.mdl-button{-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:rgba(255,255,255,0)}html{width:100%;height:100%;-ms-touch-action:manipulation;touch-action:manipulation}body{width:100%;min-height:100%;}html,body{font-family:"Open Sans","Arial",sans-serif;font-size:14px;font-weight:400;line-height:20px;}h5,h6,p{padding:0}h5{font-size:20px;font-weight:500;line-height:1;letter-spacing:.02em}h5,h6{font-family:"Open Sans","Helvetica","Arial",sans-serif;margin:24px 0 16px}h6{font-size:16px;letter-spacing:.04em}h6,p{font-weight:400;line-height:24px}p{font-size:14px;letter-spacing:0; margin:0;}
+      html{color:rgba(0,0,0,.87)}::-moz-selection{background:none;text-shadow:none}::selection{background:none;text-shadow:none}.hidden{display:none}@media print{*,*:before,*:after{background:transparent;color:#000;box-shadow:none}tr{page-break-inside:avoid}p{orphans:3;widows:3}}.mdl-button{-webkit-tap-highlight-color:transparent;-webkit-tap-highlight-color:rgba(255,255,255,0)}html{width:100%;height:100%;-ms-touch-action:manipulation;touch-action:manipulation}body{width:100%;min-height:100%;}html,body{font-family:"Open Sans","Arial",sans-serif;font-size:14px;font-weight:400;line-height:20px;}h5,h6,p{padding:0}h5{font-size:20px;font-weight:500;line-height:1;letter-spacing:.02em}h5,h6{font-family:"Open Sans","Helvetica","Arial",sans-serif;margin:24px 0 16px}h6{font-size:16px;letter-spacing:.04em}h6,p{font-weight:400;line-height:24px}p{font-size:14px;letter-spacing:0; margin:0;}
       div,h1,h2{ margin:0; padding:0px; }ul,li{list-style: none; margin:0; padding:0;}
       input,textarea{font-family:"Open Sans","Arial",sans-serif;}
       a { color:#333; text-decoration:none; }
@@ -98,10 +98,10 @@
   	<header class="header">
   		<div class="header_main">
   			<div class="header_top">
-  				<div class="header_top_list" [class]="visible ? 'is-open' : 'header_top_list'" tabindex="0" role='button' on="tap:AMP.setState({visible: !visible}),sidebar-first.toggle,sidebar-second-networking.close">
+  				<div class="header_top_list" [class]="visible ? 'is-open' : 'header_top_list'" tabindex="0" role='button' on="tap:AMP.setState({visible: !visible}),sidebar-first.toggle,sidebar-second-networking.close,sidebar-second-FOT.close,sidebar-second-FOC.close,sidebar-second-RE.close,sidebar-second-WO.close,sidebar-second-CCCC.close,sidebar-second-TT.close">
   					<span class="line header_top_list_first_line"></span>
-            <span class="line header_top_list_second_line"></span>
-            <span class="line header_top_list_third_line"></span>
+					<span class="line header_top_list_second_line"></span>
+					<span class="line header_top_list_third_line"></span>
   				</div>
   				<a href="https://www.fs.com" class="header_logo">
   					
@@ -134,27 +134,27 @@
   					Networking
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-FOT.open">
   					Fiber Optic Transceivers
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-FOC.open">
   					Fiber Optic Cables
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-RE.open">
   					Racks & Enclosures
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-WO.open">
   					WDM & Optical Access
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-CCCC.open">
   					Cat5e/Cat6/Cat7/Cat8
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-TT.open">
   					Testers & Tools
   					<i class="arrow-right"></i>
   				</li>
@@ -222,33 +222,261 @@
   		</div>
   		<h2 class="sidebar_second_categories_tit">Networking</h2>
   		<ul>
-  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://mc471066223.github.io/AMP/api/categories/network/one.json'})">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3079'})">
   					Network Switches
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://mc471066223.github.io/AMP/api/categories/network/two.json'})">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1017'})">
   					Data Center Switches
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=2962'})">
   					PDU, UPS, Power System
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3376'})">
   					Network Adapters
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3265'})">
   					Routers, Servers
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3396'})">
   					Media Converters, KVM, TAP
   					<i class="arrow-right"></i>
   				</li>
   			</ul>
-  	</amp-sidebar>
-  	
+	</amp-sidebar>
+	  
+	<amp-sidebar id='sidebar-second-FOT' layout='nodisplay' side='right' class='categories-sidebar'>
+		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-FOT.close">
+			<i class="arrow-left"></i>
+			Main Menu
+		</div>
+		<h2 class="sidebar_second_categories_tit">Fiber Optic Transceivers</h2>
+		<ul>
+				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=889'})">
+					40G/100G Transceivers
+					<i class="arrow-right"></i>
+				</li>
+				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=56'})">
+					SFP+ Transceivers
+					<i class="arrow-right"></i>
+				</li>
+				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=57'})">
+					SFP Transceivers
+					<i class="arrow-right"></i>
+				</li>
+				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1113'})">
+					Direct Attach Cables
+					<i class="arrow-right"></i>
+				</li>
+				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=2688'})">
+					Active Optical Cables
+					<i class="arrow-right"></i>
+				</li>
+				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=58'})">
+					XFP Transceivers
+					<i class="arrow-right"></i>
+				</li>
+				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=2757'})">
+					Digital Video Transceivers
+					<i class="arrow-right"></i>
+				</li>
+				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=61'})">
+					Other Transceivers
+					<i class="arrow-right"></i>
+				</li>
+				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3388'})">
+					FS Box
+					<i class="arrow-right"></i>
+				</li>
+			</ul>
+	</amp-sidebar>
+	  
+	<amp-sidebar id='sidebar-second-FOC' layout='nodisplay' side='right' class='categories-sidebar'>
+		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-FOC.close">
+			<i class="arrow-left"></i>
+			Main Menu
+		</div>
+		<h2 class="sidebar_second_categories_tit">Fiber Optic Cables</h2>
+		<ul>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=899'})">
+				MTP Fiber Cabling
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=261'})">
+				Fiber Patch Cables
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1080'})">
+				Ruggedized Fiber Cables
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3471'})">
+				MPO Fiber Cabling
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1416'})">
+				Ultra HD Fiber Cables
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1120'})">
+				Pre-terminated Multifiber Cables
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1130'})">
+				Fiber Cable Pigtails
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1414'})">
+				Fiber Adapters & Connectors
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=573'})">
+				Bulk Fiber Cables
+				<i class="arrow-right"></i>
+			</li>
+		</ul>
+	</amp-sidebar>
+
+	<amp-sidebar id='sidebar-second-RE' layout='nodisplay' side='right' class='categories-sidebar'>
+		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-RE.close">
+			<i class="arrow-left"></i>
+			Main Menu
+		</div>
+		<h2 class="sidebar_second_categories_tit">Racks & Enclosures</h2>
+		<ul>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=2997'})">
+				Fiber Optic Enclosures
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1068'})">
+				Fiber Patch Panels
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=2961'})">
+				Fiber Optic Cassettes
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3091'})">
+				Racks & Cabinets
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3'})">
+				Cable Management
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3319'})">
+				Raceway System
+				<i class="arrow-right"></i>
+			</li>
+		</ul>
+	</amp-sidebar>
+
+	<amp-sidebar id='sidebar-second-WO' layout='nodisplay' side='right' class='categories-sidebar'>
+		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-WO.close">
+			<i class="arrow-left"></i>
+			Main Menu
+		</div>
+		<h2 class="sidebar_second_categories_tit">WDM & Optical Access</h2>
+		<ul>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=6'})">
+				Mux Demux & OADM
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1309'})">
+				Passive Components
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1334'})">
+				Fiber Termination
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3390'})">
+				FMT WDM Transport Platform
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=894'})">
+				FMT Infrastructure Modules
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=4'})">
+				Cleaner & Testers
+				<i class="arrow-right"></i>
+			</li>
+		</ul>
+	</amp-sidebar>
+
+	<amp-sidebar id='sidebar-second-CCCC' layout='nodisplay' side='right' class='categories-sidebar'>
+		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-CCCC.close">
+			<i class="arrow-left"></i>
+			Main Menu
+		</div>
+		<h2 class="sidebar_second_categories_tit">Cat5e/Cat6/Cat7/Cat8</h2>
+		<ul>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=960'})">
+				Patch Cables
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=2974'})">
+				Pre-terminated Trunk Cables
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=629'})">
+				Bulk Cables
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1097'})">
+				Patch Panels
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3'})">
+				Cable Management
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=979'})">
+				Copper Tools & Testers
+				<i class="arrow-right"></i>
+			</li>
+		</ul>
+	</amp-sidebar>
+
+	<amp-sidebar id='sidebar-second-TT' layout='nodisplay' side='right' class='categories-sidebar'>
+		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-TT.close">
+			<i class="arrow-left"></i>
+			Main Menu
+		</div>
+		<h2 class="sidebar_second_categories_tit">Testers & Tools</h2>
+		<ul>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=23'})">
+				Fiber Optic Cleaner
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=18'})">
+				Basic Fiber Tester
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=1317'})">
+				Advanced Fiber Tester
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=3368'})">
+				Fiber Polish & Splice
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=20'})">
+				Fiber Optic Tools
+				<i class="arrow-right"></i>
+			</li>
+			<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'https://tx.fs.com/amp_categories.php?action=left_bar_category&cid=979'})">
+				Copper Tools & Testers
+				<i class="arrow-right"></i>
+			</li>
+		</ul>
+	</amp-sidebar>
+
   	<amp-sidebar id='sidebar-third-categories' layout='nodisplay' side='right' class="categories-sidebar">
   		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-networking.close">
   			<i class="arrow-left"></i>
