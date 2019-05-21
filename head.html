@@ -83,7 +83,7 @@
     	.sidebar_second_categories_tit{font-size: 16px;color: #333;font-weight: 400;padding: 10px 15px 0;line-height: 48px;}
     	.sidebar_third_toSecond{padding-top: 10px;}
     	.sidebar_categories_list a{display: block;}
-    	.sidebar_first_help{padding: 10px 0 50px;}
+    	.sidebar_first_help{padding: 10px 0 100px;}
     	#sidebar-second-help ul{padding: 10px 0;}
     </style>
   </head>
@@ -163,15 +163,15 @@
   		<div class="sidebar_first_help">
   			<h2 class="sidebar_first_categories_tit">Help & Setting</h2>
   			<ul>
-  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-help.open,AMP.setState({helpSrc:'/api/help/support.json'})">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-help.open,AMP.setState({helpSrc:'api/help/support.json'})">
   					Support
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-help.open,AMP.setState({helpSrc:'/api/help/company.json'})">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-help.open,AMP.setState({helpSrc:'api/help/company.json'})">
   					Company
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-help.open,AMP.setState({helpSrc:'/api/help/quick.json'})">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-second-help.open,AMP.setState({helpSrc:'api/help/quick.json'})">
   					Quick Access
   					<i class="arrow-right"></i>
   				</li>
@@ -222,11 +222,11 @@
   		</div>
   		<h2 class="sidebar_second_categories_tit">Networking</h2>
   		<ul>
-  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'/api/categories/network/one.json'})">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'api/categories/network/one.json'})">
   					Network Switches
   					<i class="arrow-right"></i>
   				</li>
-  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'/api/categories/network/two.json'})">
+  				<li class="sidebar_categories_list" tabindex="0" role='button' on="tap:sidebar-third-categories.open,AMP.setState({categories:'api/categories/network/two.json'})">
   					Data Center Switches
   					<i class="arrow-right"></i>
   				</li>
@@ -259,7 +259,7 @@
   			Go back
   		</h2>
   		<ul>
-	  		<amp-list layout='responsive' width="300" height="100" [src]="categories" src="/api/categories/network/one.json">
+	  		<amp-list layout='responsive' width="300" height="100" [src]="categories" src="api/categories/network/one.json">
 	  			<template type='amp-mustache'>
 	  				<li class="sidebar_categories_list">
 	  					<a href="{{url}}">
@@ -277,7 +277,7 @@
   			Main Menu
   		</div>
   		<ul>
-  			<amp-list layout='responsive' width="300" height="100" [src]="helpSrc" src="/api/help/support.json">
+  			<amp-list layout='responsive' width="300" height="100" [src]="helpSrc" src="api/help/support.json">
   				<template type='amp-mustache'>
   					<li class="sidebar_categories_list">
 	  					<a href="{{url}}">
