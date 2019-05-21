@@ -568,7 +568,7 @@
   
 	<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' class="search-sidebar">
 		<div class="search_top">
-			<em></em>
+			<em tabindex="0" role="button" on="tap:sidebar-search.close"></em>
 			<div class="search_top_ipt">
 				<span></span>
 				<input type="text" placeholder="Search..." [value]="searchState.inputValue" on="input-throttled:AMP.setState({searchState:{inputValue:event.value}})">
