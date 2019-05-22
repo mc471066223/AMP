@@ -102,12 +102,13 @@
 		.search_top_ipt{padding-left: 34px;height: 100%;position: relative;}
 		.search_top_ipt span{left: 40px;}
 		.search_top_ipt i{position: absolute;right: 5px;top: 6px;width: 22px;height: 22px;background-image: url(images/close.svg);background-size: 100%;}
-		.search-result{display: block;position:absolute;top:50px;left:0;width: 100%;box-sizing: border-box;padding: 0 15px;background-color: #fff;}
+		.search-result{display: block;position:absolute;top:50px;left:0;width: 100%;box-sizing: border-box;padding: 0 15px;background-color: #fff;z-index: 1;}
 		.search-result-con{line-height: 48px;border-bottom: 1px solid #e5e5e5;box-sizing: border-box;padding: 0 15px}
 		.search-result-con a{display: block;font-size: 14px;color: #333;}
 		.noSearch{display: none;}
 		.hot-search{padding: 0 10px 10px;}
 		.hot-search-tit{font-size: 16px;color: #333;font-weight: 400;margin-bottom: 24px;}
+		.hot-search-all-con{padding: 0 8px;float: left;line-height: 32px;border: 1px solid #dedede;border-radius: 3px;color: #999;text-decoration: none;margin-right: 10px;margin-bottom: 10px;}
 	</style>
   </head>
   <body>
@@ -595,7 +596,13 @@
 		<div class="hot-search">
 			<h2 class="hot-search-tit">Hot Search</h2>
 			<div class="hot-search-all">
-				
+				<amp-list layout="responsive" width="300" height="300" src="https://tx.fs.com/amp_categories.php?action=hot_search">
+					<template type="amp-mustache">
+						<a class="hot-search-all-con" href="{{link}}">
+							{{name}}
+						</a>
+					</template>
+				</amp-list>
 			</div>
 		</div>
 	</amp-sidebar>
