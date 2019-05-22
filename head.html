@@ -126,6 +126,7 @@
 			}
 		</script>
 	</amp-state>
+	<!-- 公共头部模块 -->
   	<header class="header">
   		<div class="header_main">
   			<div class="header_top">
@@ -147,7 +148,8 @@
 			  </div>
   		</div>
 	</header>
-	  
+	
+	<!-- 轮播图组件 -->
 	<amp-carousel type="slides" layout="responsive" autoplay loop class="banner" width="960" height="540" on="slideChange:AMP.setState({selected: {slide: event.index}})" [slide]="selected.slide">
 		<a href="https://www.fs.com/shipping_delivery.html">
 			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20190423112531_925.jpg" width="960" height="540"></amp-img>
@@ -178,7 +180,14 @@
 			<span option='5'></span>
 		</div>
 	</amp-selector>
-	
+	<!-- 轮播图组件结束 -->
+
+	<!-- 十个专题模块 -->
+	<div class="index-special-topic">
+
+	</div>
+
+	<!-- 第一级侧边栏 -->
   	<amp-sidebar id='sidebar-first' class="header_sidebar" layout='nodisplay' side='left'>
   		<div class="sidebar_first_country_account">
   			<div class="sidebar_first_country" tabindex="0" role='button' on="tap:sidebar-country.open">
@@ -244,7 +253,9 @@
   				</li>
   			</ul>
   		</div>
-  	</amp-sidebar>
+	</amp-sidebar>
+	  
+	<!-- 国家选择侧边栏 -->
   	<amp-sidebar id='sidebar-country' layout='nodisplay' side='left' class="country_region_sidebar">
   		<div class="country_region_sidebar_tit">
   			<div class="country_region_sidebar_close is-open" tabindex="0" role='button' on="tap:sidebar-country.close">
@@ -282,6 +293,7 @@
   		</div>
   	</amp-sidebar>
   
+	<!-- 所有二级分类侧边栏 -->
   	<amp-sidebar id='sidebar-second-networking' layout='nodisplay' side='right' class='categories-sidebar'>
   		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-networking.close">
   			<i class="arrow-left"></i>
@@ -544,6 +556,7 @@
 		</ul>
 	</amp-sidebar>
 
+	<!-- 单页面侧边栏 -->
 	<amp-sidebar id='sidebar-second-help' layout='nodisplay' side='right' class='categories-sidebar'>
 		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-help.close">
 			<i class="arrow-left"></i>
@@ -562,6 +575,7 @@
 		</ul>
 	</amp-sidebar> 
 
+	<!-- 三级分类侧边栏 -->
   	<amp-sidebar id='sidebar-third-categories' layout='nodisplay' side='right' class="categories-sidebar">
   		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-second-networking.close">
   			<i class="arrow-left"></i>
@@ -584,6 +598,7 @@
   		</ul>
   	</amp-sidebar>
   
+	<!-- 搜索侧边栏 -->
 	<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' class="search-sidebar">
 		<div class="search_top">
 			<em tabindex="0" role="button" on="tap:sidebar-search.close"></em>
@@ -620,6 +635,7 @@
 			</div>
 		</div>
 	</amp-sidebar>
+	<!-- 搜索API -->
 	<amp-state id='searchAPI'>
 		<script type="application/json">
 			{
