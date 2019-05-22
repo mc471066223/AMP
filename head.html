@@ -95,15 +95,15 @@
 		.header_search{padding: 0 0 10px;transition: all .3s;width: 100%;box-sizing: border-box;margin: 0 auto;position: relative;z-index: 100;}
 		.header_search span,.search_top_ipt span{position: absolute;left: 9px;top: 7px;width: 20px;height: 20px;background-image: url(images/Search.svg);background-size: 100%;}
 		.header_search input,.search_top_ipt input{height: 34px;border: none;outline: none;background-color: #eee;width: 100%;border-radius: 3px;text-indent: 35px;color: #666;font-size: 14px;}
-		.search-sidebar{width: 100%;max-width: 100%;background-color: #fff;}
+		.search-sidebar{width: 100%;max-width: 100%;background-color: #fff;position: relative;}
 		.search_top{box-sizing: border-box;padding: 8px 10px;position: relative;height: 50px;border-bottom: 2px solid #dfdfdf;margin-bottom: 20px;}
 		.search_top em{position: absolute;top: 12px;left: 15px;z-index: 10;width: 24px;height: 32px;background-image: url(images/left.svg);background-size: 100%;background-repeat: no-repeat;}
 		.search_top_ipt{padding-left: 34px;height: 100%;position: relative;}
 		.search_top_ipt span{left: 40px;}
 		.search_top_ipt i{position: absolute;right: 5px;top: 7px;width: 20px;height: 20px;background-image: url(images/close.svg);background-size: 100%;}
-
-
-
+		.search-result{position: absolute;width: 100%;left: 0;top:50px;padding: 0 15px;box-sizing: border-box}
+		.search-result-con{line-height: 48px;border-bottom: 1px solid #e5e5e5;box-sizing: border-box}
+		.search-result-con a{display: block;font-size: 14px;color: #333;}
 	
 	</style>
   </head>
@@ -575,6 +575,28 @@
 				<i tabindex="0" role="button" on="tap:AMP.setState({searchState:{inputValue:''}})"></i>
 			</div>
 		</div>
+		<div class="search-result">
+			<amp-list layout="responsive" width="300" height="300" [src]="searchState.inputValue ? searchAPI.autoSearchAPI + encodeURIComponent(searchState.inputValue) : searchAPI.emptyAndInitialTemplateJson">
+				<template type="amp-mustache">
+					<div class="search-result-con">
+						<a href="{{link}}">
+							{{fs_search_words}}
+						</a>
+					</div>
+				</template>	
+			</amp-list >
+		</div>
 	</amp-sidebar>
+	<amp-state id='searchAPI'>
+		<script type="application/json">
+			{
+				"autoSearchAPI": "https://tx.fs.com/amp_categories.php?action=search&search_key=",
+				"emptyAndInitialTemplateJson": [{
+						"query": "",
+						"results": []
+				}]
+			}
+		</script>
+	</amp-state>
   </body>
 </html>
