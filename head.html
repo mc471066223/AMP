@@ -591,7 +591,7 @@
 				<span></span>
 				<form action="https://tx.fs.com" method="GET" target="_top">
 					<input type="hidden" name="main_page" value="advanced_search_result">
-					<input type="text" name="keyword" placeholder="Search..." [value]="searchState.inputValue" on="input-throttled:AMP.setState({searchState:{inputValue:event.value}})">
+					<input type="text" name="keyword" placeholder="Search..." [value]="searchState.inputValue" on="input-throttled:AMP.setState({searchState:{inputValue:event.value}})" autofocus autocomplete="off">
 				</form>
 				<i tabindex="0" role="button" on="tap:AMP.setState({searchState:{inputValue:''}})"></i>
 			</div>
