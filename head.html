@@ -7,7 +7,8 @@
     <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
     <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
-    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+		<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+		<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
 	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <title>Hello, AMPs</title>
@@ -97,14 +98,16 @@
 		.header_search input,.search_top_ipt input{height: 34px;border: none;outline: none;background-color: #eee;width: 100%;border-radius: 3px;text-indent: 35px;color: #666;font-size: 14px;}
 		.search-sidebar{width: 100%;max-width: 100%;background-color: #fff;position: relative;}
 		.search_top{box-sizing: border-box;padding: 8px 10px;position: relative;height: 50px;border-bottom: 2px solid #dfdfdf;margin-bottom: 20px;}
-		.search_top em{position: absolute;top: 12px;left: 15px;z-index: 10;width: 24px;height: 32px;background-image: url(images/left.svg);background-size: 100%;background-repeat: no-repeat;}
+		.search_top em{position: absolute;top: 14px;left: 15px;z-index: 10;width: 24px;height: 32px;background-image: url(images/left.svg);background-size: 100%;background-repeat: no-repeat;}
 		.search_top_ipt{padding-left: 34px;height: 100%;position: relative;}
 		.search_top_ipt span{left: 40px;}
-		.search_top_ipt i{position: absolute;right: 5px;top: 7px;width: 20px;height: 20px;background-image: url(images/close.svg);background-size: 100%;}
-		.search-result{position: absolute;width: 100%;left: 0;top:50px;padding: 0 15px;box-sizing: border-box}
-		.search-result-con{line-height: 48px;border-bottom: 1px solid #e5e5e5;box-sizing: border-box}
+		.search_top_ipt i{position: absolute;right: 5px;top: 6px;width: 22px;height: 22px;background-image: url(images/close.svg);background-size: 100%;}
+		.search-result{display: block;position:absolute;top:50px;left:0;width: 100%;box-sizing: border-box;padding: 0 15px;background-color: #fff;}
+		.search-result-con{line-height: 48px;border-bottom: 1px solid #e5e5e5;box-sizing: border-box;padding: 0 15px}
 		.search-result-con a{display: block;font-size: 14px;color: #333;}
-	
+		.noSearch{display: none;}
+		.hot-search{padding: 0 10px 10px;}
+		.hot-search-tit{font-size: 16px;color: #333;font-weight: 400;margin-bottom: 24px;}
 	</style>
   </head>
   <body>
@@ -571,12 +574,15 @@
 			<em tabindex="0" role="button" on="tap:sidebar-search.close"></em>
 			<div class="search_top_ipt">
 				<span></span>
-				<input type="text" placeholder="Search..." [value]="searchState.inputValue" on="input-throttled:AMP.setState({searchState:{inputValue:event.value}})">
+				<form action="https://tx.fs.com" method="GET" target="_top">
+					<input type="hidden" name="main_page" value="advanced_search_result">
+					<input type="text" name="keyword" placeholder="Search..." [value]="searchState.inputValue" on="input-throttled:AMP.setState({searchState:{inputValue:event.value}})">
+				</form>
 				<i tabindex="0" role="button" on="tap:AMP.setState({searchState:{inputValue:''}})"></i>
 			</div>
 		</div>
-		<div class="search-result">
-			<amp-list layout="responsive" width="300" height="300" [src]="searchState.inputValue ? searchAPI.autoSearchAPI + encodeURIComponent(searchState.inputValue) : searchAPI.emptyAndInitialTemplateJson">
+		<div class="noSearch" [class]="searchState.inputValue ? 'search-result' : 'noSearch'">
+			<amp-list class="search-result-list" layout="responsive" width="300" height="300" [src]="searchState.inputValue ? searchAPI.autoSearchAPI + encodeURIComponent(searchState.inputValue) : searchAPI.emptyAndInitialTemplateJson">
 				<template type="amp-mustache">
 					<div class="search-result-con">
 						<a href="{{link}}">
@@ -585,6 +591,12 @@
 					</div>
 				</template>	
 			</amp-list >
+		</div>
+		<div class="hot-search">
+			<h2 class="hot-search-tit">Hot Search</h2>
+			<div class="hot-search-all">
+				
+			</div>
 		</div>
 	</amp-sidebar>
 	<amp-state id='searchAPI'>
