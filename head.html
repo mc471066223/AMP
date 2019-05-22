@@ -149,22 +149,34 @@
 	</header>
 	  
 	<amp-carousel type="slides" layout="responsive" autoplay loop class="banner" width="960" height="540" on="slideChange:AMP.setState({selected: {slide: event.index}})" [slide]="selected.slide">
-		<amp-list layout="responsive" width="960" height="540" src="https://tx.fs.com/amp_categories.php?action=index_banners">
-			<template type="amp-mustache">
-				<a href="{{url_str}}">
-					<amp-img src="{{img_mobile_path}}" width="960" height="540"></amp-img>
-				</a>
-			</template>
-		</amp-list>
+		<a href="https://www.fs.com/shipping_delivery.html">
+			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20190423112531_925.jpg" width="960" height="540"></amp-img>
+		</a>
+		<a href="https://www.fs.com//100G_Transceivers.html">
+			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20181127155625_288.jpg" width="960" height="540"></amp-img>
+		</a>
+		<a href="https://www.fs.com//fs-n-series-cumulus-linux-switches.html">
+			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/m-banner.jpg" width="960" height="540"></amp-img>
+		</a>
+		<a href="https://www.fs.com/10g-sfp-optical-module.html">
+			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20181207113001_159.jpg" width="960" height="540"></amp-img>
+		</a>
+		<a href="https://www.fs.com/wdm_optical_transport_platform.html">
+			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20190304102750_639.jpg" width="960" height="540"></amp-img>
+		</a>
+		<a href="https://www.fs.com/gr-series-cabinet.html">
+			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20190126162651_900.jpg" width="960" height="540"></amp-img>
+		</a>
 	</amp-carousel>
 	<amp-selector on="select:AMP.setState({selected: {slide: event.targetOption}})" [selected]="selected.slide">
-	<div class="dot">
-		<span option="0" selected></span>
-		<span option='1'></span>
-		<span option='2'></span>
-		<span option='3'></span>
-		<span option='4'></span>
-	</div>
+		<div class="dot">
+		  	<span option="0" selected></span>
+		  	<span option='1'></span>
+		  	<span option='2'></span>
+		  	<span option='3'></span>
+			<span option='4'></span>
+			<span option='5'></span>
+		</div>
 	</amp-selector>
 	
   	<amp-sidebar id='sidebar-first' class="header_sidebar" layout='nodisplay' side='left'>
