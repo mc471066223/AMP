@@ -188,26 +188,19 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
 	</header>
 	
 	<!-- 轮播图组件 -->
-	<amp-carousel type="slides" id="index-banner" layout="responsive" autoplay loop class="banner" width="960" height="540" on="slideChange:index-banner-selector.toggle(index=event.index, value=true)">
-		<a href="https://www.fs.com/shipping_delivery.html">
-			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20190423112531_925.jpg" width="960" height="540"></amp-img>
-		</a>
-		<a href="https://www.fs.com//100G_Transceivers.html">
-			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20181127155625_288.jpg" width="960" height="540"></amp-img>
-		</a>
-		<a href="https://www.fs.com//fs-n-series-cumulus-linux-switches.html">
-			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/m-banner.jpg" width="960" height="540"></amp-img>
-		</a>
-		<a href="https://www.fs.com/10g-sfp-optical-module.html">
-			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20181207113001_159.jpg" width="960" height="540"></amp-img>
-		</a>
-		<a href="https://www.fs.com/wdm_optical_transport_platform.html">
-			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20190304102750_639.jpg" width="960" height="540"></amp-img>
-		</a>
-		<a href="https://www.fs.com/gr-series-cabinet.html">
-			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20190126162651_900.jpg" width="960" height="540"></amp-img>
-		</a>
-	</amp-carousel>
+	
+	<amp-list layout="responsive" width="960" height="540" src="https://mc471066223.github.io/AMP/api/banner.json">
+		<template type="amp-mustache">
+			<amp-carousel type="slides" id="index-banner" layout="responsive" autoplay loop class="banner" width="960" height="540" on="slideChange:index-banner-selector.toggle(index=event.index, value=true)">
+				{{#values}}
+					<a href="{{url_str}}">
+						<amp-img layout="responsive" src="{{img_mobile_path}}" width="960" height="540"></amp-img>
+					</a>
+				{{/values}}
+			</amp-carousel>
+		</template>
+	</amp-list>
+	
 	<amp-selector id="index-banner-selector" on="select:index-banner.goToSlide(index=event.targetOption)">
 		<div class="dot">
 		  	<span option="0" selected></span>

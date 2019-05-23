@@ -1,0 +1,32 @@
+{
+    "items": [{
+        "values":[{
+            "img_mobile_path": "https:\/\/img-en.fs.com\/\/images\/home_custom\/20181228103011_179.jpg",
+            "url_str": "\/shipping_delivery.html"
+        },
+        {
+            "img_mobile_path": "https:\/\/img-en.fs.com\/\/images\/home_custom\/20190307201600_429.jpg",
+            "url_str": "\/specials\/pre-order-service-71.html"
+        },
+        {
+            "img_mobile_path": "https:\/\/img-en.fs.com\/\/images\/home_custom\/m-banner.jpg",
+            "url_str": "\/fs-n-series-cumulus-linux-switches.html"
+        },
+        {
+            "img_mobile_path": "https:\/\/img-en.fs.com\/\/images\/home_custom\/20181127155625_288.jpg",
+            "url_str": "\/100G_Transceivers.html"
+        },
+        {
+            "img_mobile_path": "https:\/\/img-en.fs.com\/\/images\/home_custom\/20190126162651_900.jpg",
+            "url_str": "\/gr-series-cabinet.html"
+        },
+        {
+            "img_mobile_path": "https:\/\/img-en.fs.com\/\/images\/home_custom\/20190304102750_639.jpg",
+            "url_str": "\/wdm_optical_transport_platform.html"
+        },
+        {
+            "img_mobile_path": "https:\/\/img-en.fs.com\/\/images\/home_custom\/20181207113001_159.jpg",
+            "url_str": "\/10g-sfp-optical-module.html"
+        }]
+    }]
+}
