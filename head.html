@@ -11,6 +11,7 @@
 		<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
 	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+	<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
     <title>Hello, AMPs</title>
     <link rel="canonical" href="https://amp.dev/zh_cn/documentation/guides-and-tutorials/start/create/basic_markup">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -89,9 +90,9 @@
 		amp-img { max-height:inherit; max-width:inherit; }
 		.banner{width: 100%;height: auto;}
 		.dot{position: absolute;bottom: 10px;width: 100%;text-align: center;}
-		.dot span { margin: 0 5px; width: 8px; height: 8px; display: inline-block; border-radius: 100%; background: #fff; opacity: .3; }
-		amp-selector [option][selected] { cursor: auto; outline: none; height: 8px; display: inline-block; border-radius: 100%; background: #fff; opacity: 1; }
-		.dot span.active { margin: 0 5px; width: 8px; height: 8px; display: inline-block; border-radius: 100%; background: #fff; opacity: 1; }
+		.dot span { margin: 0 5px; width: 25px; height: 2px; display: inline-block; border-radius: 0; background: #fff; opacity: .3; }
+		amp-selector [option][selected] { cursor: auto; outline: none; display: inline-block;background: #fff; opacity: 1; }
+		.dot span.active { background: #fff; opacity: 1; }
     	.amp-carousel-button{display: none;}
 		.header_search{padding: 0 0 10px;transition: all .3s;width: 100%;box-sizing: border-box;margin: 0 auto;position: relative;z-index: 100;}
 		.header_search span,.search_top_ipt span{position: absolute;left: 9px;top: 7px;width: 20px;height: 20px;background-image: url(images/Search.svg);background-size: 100%;}
@@ -109,6 +110,30 @@
 		.hot-search{padding: 0 10px 10px;}
 		.hot-search-tit{font-size: 16px;color: #333;font-weight: 400;margin-bottom: 24px;}
 		.hot-search-all-con{padding: 0 8px;float: left;line-height: 32px;border: 1px solid #dedede;border-radius: 3px;color: #999;text-decoration: none;margin-right: 10px;margin-bottom: 10px;}
+		.index-special-topic{background-color: #fff;padding: 10px 0 15px 0;overflow: hidden;}
+		.index-special-topic-one{width: 20%;float: left;text-align: center;}
+		.index-special-topic-one a{display: block}
+		.index-special-topic-one span{display:inline-block;width: 40px;height:40px;background-size: 100%;}
+		.index-special-topic-one.one span{background-image: url(images/index-special-one.svg);}
+		.index-special-topic-one.two span{background-image: url(images/index-special-two.svg);}
+		.index-special-topic-one.three span{background-image: url(images/index-special-three.svg);}
+		.index-special-topic-one.four span{background-image: url(images/index-special-four.svg);}
+		.index-special-topic-one.five span{background-image: url(images/index-special-five.svg);}
+		.index-special-topic-one.six span{background-image: url(images/index-special-six.svg);}
+		.index-special-topic-one.seven span{background-image: url(images/index-special-seven.svg);}
+		.index-special-topic-one.eight span{background-image: url(images/index-special-eight.svg);}
+		.index-special-topic-one.nine span{background-image: url(images/index-special-nine.svg);width: 35px;background-position: center;background-repeat: no-repeat;}
+		.index-special-topic-one.ten span{background-image: url(images/index-special-ten.svg);}
+		.index-special-topic-one p{font-size: 12px;color: #707473;line-height: 14px;height: 34px;}
+		.index-video{padding: 15px 15px 20px;background-color: #f7f8f9;}
+		.notBanner span{background-color: #e2e2e4;opacity: 1;}
+		.notBannerSelector [option][selected]{background-color: #ccc}
+		.notBanner{bottom: -16px}
+
+
+
+
+
 	</style>
   </head>
   <body>
@@ -150,7 +175,7 @@
 	</header>
 	
 	<!-- 轮播图组件 -->
-	<amp-carousel type="slides" layout="responsive" autoplay loop class="banner" width="960" height="540" on="slideChange:AMP.setState({selected: {slide: event.index}})" [slide]="selected.slide">
+	<amp-carousel type="slides" id="index-banner" layout="responsive" autoplay loop class="banner" width="960" height="540" on="slideChange:index-banner-selector.toggle(index=event.index, value=true)">
 		<a href="https://www.fs.com/shipping_delivery.html">
 			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20190423112531_925.jpg" width="960" height="540"></amp-img>
 		</a>
@@ -170,7 +195,7 @@
 			<amp-img layout="responsive" src="https://img-en.fs.com/images/home_custom/20190126162651_900.jpg" width="960" height="540"></amp-img>
 		</a>
 	</amp-carousel>
-	<amp-selector on="select:AMP.setState({selected: {slide: event.targetOption}})" [selected]="selected.slide">
+	<amp-selector id="index-banner-selector" on="select:index-banner.goToSlide(index=event.targetOption)">
 		<div class="dot">
 		  	<span option="0" selected></span>
 		  	<span option='1'></span>
@@ -184,7 +209,88 @@
 
 	<!-- 十个专题模块 -->
 	<div class="index-special-topic">
+		<div class="index-special-topic-one one">
+			<a href="https://www.fs.com/specials/25g-100g-transceivers-63.html">
+				<span></span>
+				<p>25G/100G</p>
+			</a>
+		</div>
+		<div class="index-special-topic-one two">
+			<a href="https://www.fs.com/specials/40g-transceivers-69.html">
+				<span></span>
+				<p>40G</p>
+			</a>
+		</div>
+		<div class="index-special-topic-one three">
+			<a href="https://www.fs.com/specials/10g-sfp-series-fiber-optic-transceivers-49.html">
+				<span></span>
+				<p>10G</p>
+			</a>
+		</div>
+		<div class="index-special-topic-one four">
+			<a href="https://www.fs.com/specials/dac-aoc-67.html">
+				<span></span>
+				<p>DAC/AOC</p>
+			</a>
+		</div>
+		<div class="index-special-topic-one five">
+			<a href="https://www.fs.com/specials/data-center-switches-68.html">
+				<span></span>
+				<p>Switches</p>
+			</a>
+		</div>
+		<div class="index-special-topic-one six">
+			<a href="https://www.fs.com/specials/wdm-otn-system-70.html">
+				<span></span>
+				<p>WDM<br>MUX</p>
+			</a>
+		</div>
+		<div class="index-special-topic-one seven">
+			<a href="https://www.fs.com/specials/fiber-patch-cables-65.html">
+				<span></span>
+				<p>Fiber<br>Cables</p>
+			</a>
+		</div>
+		<div class="index-special-topic-one eight">
+			<a href="https://www.fs.com/specials/mtp-mpo-fiber-cabling-64.html">
+				<span></span>
+				<p>MTP/MPO<br>Cables</p>
+			</a>
+		</div>
+		<div class="index-special-topic-one nine">
+			<a href="https://www.fs.com/specials/high-density-fiber-patching-solutions-62.html">
+				<span></span>
+				<p>Modular<br>Cabling</p>
+			</a>
+		</div>
+		<div class="index-special-topic-one ten">
+			<a href="https://www.fs.com/specials/copper-cabling-systems-60.html">
+				<span></span>
+				<p>Copper<br>Network</p>
+			</a>
+		</div>
+	</div>
 
+	<!-- youtube视频模块 -->
+	<div class="index-video">
+		<amp-carousel id="index-video" type="slides" layout="responsive" autoplay loop width="960" height="540" on="slideChange:index-video-selector.toggle(index=event.index, value=true)">
+			<amp-youtube width="960" height="540" layout="responsive" data-videoid="PFLeEyCIkwk">
+				<amp-img layout="responsive" width="960" height="540" src="images/index-video01.png"></amp-img>
+			</amp-youtube>
+			<amp-youtube width="960" height="540" layout="responsive" data-videoid="r2Q8sqFfSBA">
+				<amp-img layout="responsive" width="960" height="540" src="images/index-video02.png"></amp-img>
+			</amp-youtube>
+			<amp-youtube width="960" height="540" layout="responsive" data-videoid="jm82nPlSSAU">
+				<amp-img layout="responsive" width="960" height="540" src="images/index-video03.png"></amp-img>
+			</amp-youtube>
+		</amp-carousel>
+		<amp-selector class="notBannerSelector" id="index-video-selector" on="select:index-video.goToSlide(index=event.targetOption)">
+			<div class="dot notBanner">
+				<span option="0" selected></span>
+				<span option='1'></span>
+				<span option='2'></span>
+			</div>
+		</amp-selector>
 	</div>
 
 	<!-- 第一级侧边栏 -->
