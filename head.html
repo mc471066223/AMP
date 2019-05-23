@@ -189,7 +189,7 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
 	
 	<!-- 轮播图组件 -->
 	
-	<amp-list layout="responsive" width="960" height="540" src="https://mc471066223.github.io/AMP/api/banner.json">
+	<amp-list layout="responsive" width="960" height="540" src="https://tx.fs.com/amp_categories.php?action=index_banners">
 		<template type="amp-mustache">
 			<amp-carousel type="slides" id="index-banner" layout="responsive" autoplay loop class="banner" width="960" height="540" on="slideChange:index-banner-selector.toggle(index=event.index, value=true)">
 				{{#values}}
@@ -278,7 +278,7 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
 		</div>
 	</div>
 
-	<!-- youtube视频模块 -->
+	<!-- 视频模块 -->
 	<div class="index-video">
 		<amp-carousel id="index-video" type="slides" layout="responsive" loop width="1920" height="1080" on="slideChange:index-video-selector.toggle(index=event.index, value=true)">
 			<div class="index-video-con">
