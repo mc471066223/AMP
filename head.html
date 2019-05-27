@@ -131,7 +131,7 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
 .notBanner{bottom: -16px}
 .index-video-con{position: relative;}
 .index-video-con-btn{position: absolute;width: 46px;height:46px;left: 50%;margin-left: -23px;top:50%;margin-top: -23px;background-image: url(images/index-video-btn.png);background-size: 100%;}
-.product-module{background-color: #f7f8f9}
+.product-module,.index-solution{background-color: #f7f8f9;}
 .product-module-tit{font-size: 16px;color: #333;font-weight: 600;padding: 25px 15px 15px;}
 .product-module-mainProduct{width: 100%;background-color: #fff;box-sizing: border-box;padding: 0 40px 20px;margin-bottom: 12px;}
 .product-module-mainProduct-pic{padding-top: 10px;text-align: center;width:150px;height:150px;margin:0 auto}
@@ -147,6 +147,14 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
 .product-module-goods-con-one-name{font-size: 14px;color: #333;font-weight: 400;text-align: center;height: 32px;margin-bottom: 10px;line-height: 16px;padding: 0 10px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;}
 .product-module-goods-con-one-price{font-size: 13px;color: #333;text-align: center;}
 .product-module-goods-con-one-stock{font-size: 13px;color: #aaa;text-align: center;}
+.product-module .dot{bottom: -8px;}
+.product-module .dot span{background-color: #e2e2e4;opacity: 1;}
+.product-module amp-selector [option][selected]{background-color: #ccc}
+.index-solution-main{overflow: hidden;padding: 0 15px;}
+.index-solution-main-con{float: left;position: relative;width: 49%;margin-right: 2%;margin-bottom: 2%;}
+.index-solution-main-con:nth-child(2n){margin-right: 0}
+.index-solution-main-con-font{position: absolute;width: 100%;box-sizing: border-box;line-height: 14px;font-size: 12px;color: #fff;background-color: rgba(51, 51, 51, .5);padding: 5px;left: 0;bottom: 0;}
+.index-solution-main-con-font span{position: absolute;width: 13px;height: 11px;right: 5px;background-image: url(https://img-en.fs.com/includes/templates/fiberstore/images/new_index_wap/wap_Solution_icon.png);top: 50%;margin-top: -5.5px;}
 </style>
   </head>
   <body>
@@ -306,59 +314,223 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
 	<!-- Interconnection产品模块 -->
 	<div class="product-module">
 		<h2 class="product-module-tit">Interconnection</h2>
-		<div class="product-module-mainProduct">
-			<div class="product-module-mainProduct-pic">
-				<a href="https://www.fs.com/products/48354.html">
-					<amp-img layout="responsive" width="150" height="150" src="https://img-en.fs.com/images/home_custom/20180817171347_500.jpg"></amp-img>
-				</a>
-			</div>
-			<div class="product-module-mainProduct-information">
-				<a href="https://www.fs.com/products/48354.html">
-					<h2 class="product-module-mainProduct-information-tit">100G QSFP28 SR4</h2>
-					<p>100G 850nm VCSEL-based transmitter. Maximum link length of 100m on OM4 Multimode fiber.</p>
-					<span>US$  99.00</span>
-				</a>
-			</div>
-		</div>
-		<div class="product-module-goods">
-			<amp-carousel type="slides" layout="responsive" width="384" height="220">
-				<div class="product-module-goods-con">
-					<div class="product-module-goods-con-one">
-						<a href="https://www.fs.com/products/11552.html">
-							<amp-img layout="responsive" width="186" height="120" src="https://img-en.fs.com/images/home_custom/20180817171401_914.jpg"></amp-img>
-							<h2 class="product-module-goods-con-one-name">10G SFP+ SR</h2>
-							<p class="product-module-goods-con-one-price">US$  15.00</p>
-							<p class="product-module-goods-con-one-stock">40359  In Stock</p>
-						</a>
+		<amp-list layout="responsive" width="414" height="540" src="https://tx.fs.com/amp_categories.php?action=index_products&group=0">
+			<template type="amp-mustache">
+				{{#first}}
+					<div class="product-module-mainProduct">
+						<div class="product-module-mainProduct-pic">
+							<a href="{{link}}">
+								<amp-img layout="responsive" width="150" height="150" src="https://img-en.fs.com{{img_mobile_path}}"></amp-img>
+							</a>
+						</div>
+						<div class="product-module-mainProduct-information">
+							<a href="{{link}}">
+								<h2 class="product-module-mainProduct-information-tit">{{title}}</h2>
+								<p>{{content}}</p>
+								<span>{{price}}</span>
+							</a>
+						</div>
 					</div>
-					<div class="product-module-goods-con-one">
-						<a href="https://www.fs.com/products/66614.html">
-							<amp-img layout="responsive" width="186" height="120" src="https://img-en.fs.com/images/home_custom/20190412163044_937.jpg"></amp-img>
-							<h2 class="product-module-goods-con-one-name">10G-T SFP+ Copper</h2>
-							<p class="product-module-goods-con-one-price">US$  59.00</p>
-							<p class="product-module-goods-con-one-stock">1195  In Stock</p>
-						</a>
-					</div>
+				{{/first}}
+				<div class="product-module-goods">
+					<amp-carousel id="product-module-carousel-interconnection" type="slides" layout="responsive" width="384" height="220" on="slideChange:product-module-carousel-interconnection-selector.toggle(index=event.index, value=true)">
+						{{#parentEle}}
+							<div class="product-module-goods-con">
+								{{#childEle}}
+									<div class="product-module-goods-con-one">
+										<a href="{{link}}">
+											<amp-img layout="responsive" width="186" height="120" src="https://img-en.fs.com{{img}}"></amp-img>
+											<h2 class="product-module-goods-con-one-name">{{title}}</h2>
+											<p class="product-module-goods-con-one-price">{{price}}</p>
+											<p class="product-module-goods-con-one-stock">{{stock}}</p>
+										</a>
+									</div>
+								{{/childEle}}
+							</div>
+						{{/parentEle}}
+					</amp-carousel>
+					<amp-selector id="product-module-carousel-interconnection-selector" on="select:product-module-carousel-interconnection.goToSlide(index=event.targetOption)">
+						<div class="dot">
+								<span option="0" selected></span>
+								<span option='1'></span>
+								<span option='2'></span>
+								<span option='3'></span>
+						</div>
+					</amp-selector>
 				</div>
-				<div class="product-module-goods-con">
-						<div class="product-module-goods-con-one">
-							<a href="https://www.fs.com/products/36171.html">
-								<amp-img layout="responsive" width="186" height="120" src="https://img-en.fs.com/images/home_custom/20180817171426_828.jpg"></amp-img>
-								<h2 class="product-module-goods-con-one-name">40G QSFP+ LR4</h2>
-								<p class="product-module-goods-con-one-price">US$  279.00</p>
-								<p class="product-module-goods-con-one-stock">234  In Stock</p>
+			</template>
+		</amp-list>
+	</div>
+
+	<!-- Optical Transport Network产品模块 -->
+	<div class="product-module">
+		<h2 class="product-module-tit">Optical Transport Network</h2>
+		<amp-list layout="responsive" width="414" height="540" src="https://tx.fs.com/amp_categories.php?action=index_products&group=1">
+			<template type="amp-mustache">
+				{{#first}}
+					<div class="product-module-mainProduct">
+						<div class="product-module-mainProduct-pic">
+							<a href="{{link}}">
+								<amp-img layout="responsive" width="150" height="150" src="https://img-en.fs.com{{img_mobile_path}}"></amp-img>
 							</a>
 						</div>
-						<div class="product-module-goods-con-one">
-							<a href="https://www.fs.com/products/48355.html">
-								<amp-img layout="responsive" width="186" height="120" src="https://img-en.fs.com/images/home_custom/20180817171426_828.jpg"></amp-img>
-								<h2 class="product-module-goods-con-one-name">100G QSFP28 LR4</h2>
-								<p class="product-module-goods-con-one-price">US$  799.00</p>
-								<p class="product-module-goods-con-one-stock">2  In Stock</p>
+						<div class="product-module-mainProduct-information">
+							<a href="{{link}}">
+								<h2 class="product-module-mainProduct-information-tit">{{title}}</h2>
+								<p>{{content}}</p>
+								<span>{{price}}</span>
 							</a>
 						</div>
 					</div>
-			</amp-carousel>
+				{{/first}}
+				<div class="product-module-goods">
+					<amp-carousel id="product-module-carousel-OTN" type="slides" layout="responsive" width="384" height="220" on="slideChange:product-module-carousel-OTN-selector.toggle(index=event.index, value=true)">
+						{{#parentEle}}
+							<div class="product-module-goods-con">
+								{{#childEle}}
+									<div class="product-module-goods-con-one">
+										<a href="{{link}}">
+											<amp-img layout="responsive" width="186" height="120" src="https://img-en.fs.com{{img}}"></amp-img>
+											<h2 class="product-module-goods-con-one-name">{{title}}</h2>
+											<p class="product-module-goods-con-one-price">{{price}}</p>
+											<p class="product-module-goods-con-one-stock">{{stock}}</p>
+										</a>
+									</div>
+								{{/childEle}}
+							</div>
+						{{/parentEle}}
+					</amp-carousel>
+					<amp-selector id="product-module-carousel-OTN-selector" on="select:product-module-carousel-OTN.goToSlide(index=event.targetOption)">
+						<div class="dot">
+								<span option="0" selected></span>
+								<span option='1'></span>
+								<span option='2'></span>
+								<span option='3'></span>
+						</div>
+					</amp-selector>
+				</div>
+			</template>
+		</amp-list>
+	</div>
+
+	<!-- Network Cable Assemblies产品模块 -->
+	<div class="product-module">
+		<h2 class="product-module-tit">Network Cable Assemblies</h2>
+		<amp-list layout="responsive" width="414" height="540" src="https://tx.fs.com/amp_categories.php?action=index_products&group=2">
+			<template type="amp-mustache">
+				{{#first}}
+					<div class="product-module-mainProduct">
+						<div class="product-module-mainProduct-pic">
+							<a href="{{link}}">
+								<amp-img layout="responsive" width="150" height="150" src="https://img-en.fs.com{{img_mobile_path}}"></amp-img>
+							</a>
+						</div>
+						<div class="product-module-mainProduct-information">
+							<a href="{{link}}">
+								<h2 class="product-module-mainProduct-information-tit">{{title}}</h2>
+								<p>{{content}}</p>
+								<span>{{price}}</span>
+							</a>
+						</div>
+					</div>
+				{{/first}}
+				<div class="product-module-goods">
+					<amp-carousel id="product-module-carousel-NCA" type="slides" layout="responsive" width="384" height="220" on="slideChange:product-module-carousel-NCA-selector.toggle(index=event.index, value=true)">
+						{{#parentEle}}
+							<div class="product-module-goods-con">
+								{{#childEle}}
+									<div class="product-module-goods-con-one">
+										<a href="{{link}}">
+											<amp-img layout="responsive" width="186" height="120" src="https://img-en.fs.com{{img}}"></amp-img>
+											<h2 class="product-module-goods-con-one-name">{{title}}</h2>
+											<p class="product-module-goods-con-one-price">{{price}}</p>
+											<p class="product-module-goods-con-one-stock">{{stock}}</p>
+										</a>
+									</div>
+								{{/childEle}}
+							</div>
+						{{/parentEle}}
+					</amp-carousel>
+					<amp-selector id="product-module-carousel-NCA-selector" on="select:product-module-carousel-NCA.goToSlide(index=event.targetOption)">
+						<div class="dot">
+								<span option="0" selected></span>
+								<span option='1'></span>
+								<span option='2'></span>
+								<span option='3'></span>
+						</div>
+					</amp-selector>
+				</div>
+			</template>
+		</amp-list>
+	</div>
+
+		<!-- Space Management产品模块 -->
+	<div class="product-module">
+		<h2 class="product-module-tit">Space Management</h2>
+		<amp-list layout="responsive" width="414" height="540" src="https://tx.fs.com/amp_categories.php?action=index_products&group=3">
+			<template type="amp-mustache">
+				{{#first}}
+					<div class="product-module-mainProduct">
+						<div class="product-module-mainProduct-pic">
+							<a href="{{link}}">
+								<amp-img layout="responsive" width="150" height="150" src="https://img-en.fs.com{{img_mobile_path}}"></amp-img>
+							</a>
+						</div>
+						<div class="product-module-mainProduct-information">
+							<a href="{{link}}">
+								<h2 class="product-module-mainProduct-information-tit">{{title}}</h2>
+								<p>{{content}}</p>
+								<span>{{price}}</span>
+							</a>
+						</div>
+					</div>
+				{{/first}}
+				<div class="product-module-goods">
+					<amp-carousel id="product-module-carousel-SM" type="slides" layout="responsive" width="384" height="220" on="slideChange:product-module-carousel-SM-selector.toggle(index=event.index, value=true)">
+						{{#parentEle}}
+							<div class="product-module-goods-con">
+								{{#childEle}}
+									<div class="product-module-goods-con-one">
+										<a href="{{link}}">
+											<amp-img layout="responsive" width="186" height="120" src="https://img-en.fs.com{{img}}"></amp-img>
+											<h2 class="product-module-goods-con-one-name">{{title}}</h2>
+											<p class="product-module-goods-con-one-price">{{price}}</p>
+											<p class="product-module-goods-con-one-stock">{{stock}}</p>
+										</a>
+									</div>
+								{{/childEle}}
+							</div>
+						{{/parentEle}}
+					</amp-carousel>
+					<amp-selector id="product-module-carousel-SM-selector" on="select:product-module-carousel-SM.goToSlide(index=event.targetOption)">
+						<div class="dot">
+								<span option="0" selected></span>
+								<span option='1'></span>
+								<span option='2'></span>
+								<span option='3'></span>
+						</div>
+					</amp-selector>
+				</div>
+			</template>
+		</amp-list>
+	</div>
+
+	<div class="index-solution">
+		<h2 class="product-module-tit">Solutions</h2>
+		<div class="index-solution-main">
+			<amp-list layout="responsive" width="384" height="253" src="https://tx.fs.com/amp_categories.php?action=solution">
+				<template type="amp-mustache">
+					<div class="index-solution-main-con">
+						<a href="https://www.fs.com{{url}}">
+							<amp-img layout="responsive" width="190" height="120" src="{{img}}"></amp-img>
+							<p class="index-solution-main-con-font">
+								{{title}}
+								<span></span>
+							</p>
+						</a>
+					</div>
+				</template>
+			</amp-list>
 		</div>
 	</div>
 
