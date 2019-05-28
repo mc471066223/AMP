@@ -12,7 +12,7 @@
 	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 	<script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
-	<script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+	<!-- <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script> -->
 	<!-- <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script> -->
     <title>Hello, AMPs</title>
     <link rel="canonical" href="https://amp.dev/zh_cn/documentation/guides-and-tutorials/start/create/basic_markup">
@@ -251,12 +251,12 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
   				<div class="header_cart">
   					<a href="https://www.fs.com/index.php?main_page=shopping_cart"></a>
   				</div>
-			  </div>
-			  <!-- <amp-position-observer on="scroll:header-input-move.seekTo(percent=event.percent)" intersection-ratios="1" layout="nodisplay"></amp-position-observer> -->
-			  <div class="header_search" tabindex="0" role='button' on="tap:sidebar-search.open">
-					<span></span>
-					<input type="text" placeholder="Search..." disabled="disabled">
-			  </div>
+			</div>
+			<!-- <amp-position-observer on="scroll:header-input-move.seekTo(percent=event.percent)" intersection-ratios="1" layout="nodisplay"></amp-position-observer> -->
+			<div class="header_search" tabindex="0" role='button' on="tap:sidebar-search.open">
+				<span></span>
+				<input type="text" placeholder="Search..." disabled="disabled">
+			</div>
   		</div>
 	</header>
 	
