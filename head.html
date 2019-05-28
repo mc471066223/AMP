@@ -12,6 +12,8 @@
 	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
 	<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
 	<script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+	<script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+	<!-- <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script> -->
     <title>Hello, AMPs</title>
     <link rel="canonical" href="https://amp.dev/zh_cn/documentation/guides-and-tutorials/start/create/basic_markup">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -157,7 +159,7 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
 .index-solution-main-con-font span{position: absolute;width: 13px;height: 11px;right: 5px;background-image: url(https://img-en.fs.com/includes/templates/fiberstore/images/new_index_wap/wap_Solution_icon.png);top: 50%;margin-top: -5.5px;}
 .index-solution-main-con:nth-child(3), .index-solution-main-con:nth-child(4){margin-bottom: 0}
 .footer{background: #f4f4f4;}
-.footer-link{border-bottom: 1px solid #e9e9e9;overflow: hidden;display: block;}
+.footer-link{border-bottom: 1px solid #dedede;overflow: hidden;display: block;}
 .footer-link a{width: 50%;text-align: center;padding: 18px 0;float: left;font-weight: 600;}
 .footer-link a:first-child,.footer-link a:last-child{width: 25%}
 .footer-single-pages{margin-bottom: 15px;}
@@ -201,8 +203,41 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
 			}
 		</script>
 	</amp-state>
+	<!-- <amp-animation id="header-input-move" layout="nodisplay">
+		<script type="application/json">
+			{
+			"duration": "300ms",
+			"fill": "both",
+			"easing": "ease-in",
+			"delay": "0",
+			"animations": [{
+				"selector": ".header_search",
+				"keyframes": [{
+					"transform": "translateY(-43px)"
+				}]
+			}]
+			}
+		</script>
+	</amp-animation>
+	<amp-animation id="page-scroll" layout="nodisplay">
+		<script type="application/json">
+			{
+			"duration": "300ms",
+			"fill": "both",
+			"easing": "ease-in",
+			"delay": "0",
+			"animations": [{
+				"selector": ".header_main",
+				"keyframes": [{
+					
+				}]
+			}]
+			}
+		</script>
+	</amp-animation> -->
 	<!-- 公共头部模块 -->
   	<header class="header">
+		<!-- <amp-position-observer on="scroll:page-scroll.seekTo(percent=event.percent)" intersection-ratios="1" layout="nodisplay"></amp-position-observer> -->
   		<div class="header_main">
   			<div class="header_top">
   				<div class="header_top_list" [class]="visible ? 'is-open' : 'header_top_list'" tabindex="0" role='button' on="tap:AMP.setState({visible: !visible}),sidebar-first.toggle,sidebar-second-networking.close,sidebar-second-FOT.close,sidebar-second-FOC.close,sidebar-second-RE.close,sidebar-second-WO.close,sidebar-second-CCCC.close,sidebar-second-TT.close">
@@ -217,6 +252,7 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
   					<a href="https://www.fs.com/index.php?main_page=shopping_cart"></a>
   				</div>
 			  </div>
+			  <!-- <amp-position-observer on="scroll:header-input-move.seekTo(percent=event.percent)" intersection-ratios="1" layout="nodisplay"></amp-position-observer> -->
 			  <div class="header_search" tabindex="0" role='button' on="tap:sidebar-search.open">
 					<span></span>
 					<input type="text" placeholder="Search..." disabled="disabled">
