@@ -59,8 +59,8 @@ amp-img { max-height:inherit; max-width:inherit; }
 .arrow-right{font-style: normal;float: right;text-align: center;width: 14px;height: 48px;background-image: url(images/right.svg);background-size: 100%;background-position: center;background-repeat: no-repeat;}
 .arrow-left{font-style: normal;float: left;text-align: center;width: 14px;height: 48px;background-image: url(images/left.svg);background-size: 100%;background-position: center;background-repeat: no-repeat;}
 .sidebar_first_account a{display: block;height: 48px;}
-.sidebar_first_account a em{display: inline-block;vertical-align:middle;margin-right: 5px;background-image: url(images/Account.svg);background-size: 100%;width: 16px;height: 48px;background-repeat: no-repeat;background-position: center;}
-.sidebar_first_account a span{font-size: 14px;color:#3b3e40;display: inline-block;vertical-align: middle;}
+.sidebar_first_account em{display: inline-block;vertical-align:middle;margin-right: 5px;background-image: url(images/Account.svg);background-size: 100%;width: 16px;height: 48px;background-repeat: no-repeat;background-position: center;}
+.sidebar_first_account span,.sidebar-account-list span,.sidebar-account-sign-out span{font-size: 14px;color:#3b3e40;display: inline-block;vertical-align: middle;}
 .country_region_sidebar{width: 100%;height: 100%;max-width: 100%;background-color: #f7f8f9;}
 .country_region_sidebar_tit{padding: 0 15px;height: 50px;background-color: #fff;position: relative;}
 .country_region_sidebar_close{line-height: 50px;z-index: 1;left: 15px;}
@@ -89,6 +89,17 @@ amp-img { max-height:inherit; max-width:inherit; }
 .sidebar_categories_list a{display: block;}
 .sidebar_first_help{padding: 10px 0;height:350px;}
 #sidebar-second-help ul{padding: 10px 0;}
+.sidebar-account-list{padding: 10px 0;}
+.sidebar-account-list em,.sidebar-account-sign-out em{display: inline-block;vertical-align: middle;margin-right: 15px;background-size: 100%;width: 18px;height: 48px;background-repeat: no-repeat;background-position: center;}
+.sidebar-account-list li:first-child em{background-image: url(images/Account.svg)}
+.sidebar-account-list li:nth-child(2) em{background-image: url(images/setting.svg)}
+.sidebar-account-list li:nth-child(3) em{background-image: url(images/Order.svg)}
+.sidebar-account-list li:nth-child(4) em{background-image: url(images/address.svg)}
+.sidebar-account-list li:nth-child(5) em{background-image: url(images/Cases.svg)}
+.sidebar-account-list li:nth-child(6) em{background-image: url(images/quotes.svg)}
+.sidebar-account-sign-out{padding: 10px 15px;border-top: 1px solid #e5e5e5;font-size: 14px;color: #666;line-height: 48px;}
+.sidebar-account-list a,.sidebar-account-sign-out a{display: block;}
+.sidebar-account-sign-out em{background-image: url(images/warning.svg);}
 amp-img { max-height:inherit; max-width:inherit; }
 .banner{width: 100%;height: auto;}
 .dot{position: absolute;bottom: 10px;width: 100%;text-align: center;}
@@ -686,11 +697,16 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
   				<i class="arrow-right"></i>
   			</div>
   			<div class="sidebar_first_account">
-  				<a href="https://www.fs.com/index.php?main_page=login">
+  				<!-- <a href="https://www.fs.com/index.php?main_page=login">
   					<em></em>
   					<span>Account / Sign in</span>
   					<i class="arrow-right"></i>
-  				</a>
+				</a> -->
+				<div tabindex="0" role="button" on="tap:sidebar-account.open">
+					<em></em>
+  					<span>Barry.Ma</span>
+  					<i class="arrow-right"></i>
+				</div>
   			</div>
   		</div>
   		<div class="sidebar_first_categories">
@@ -1044,6 +1060,7 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
 				<i class="arrow-right"></i>
 			</li>
 		</ul>
+		
 	</amp-sidebar>
 
 	<!-- 单页面侧边栏 -->
@@ -1086,8 +1103,54 @@ amp-selector [option][selected] { cursor: auto; outline: none; display: inline-b
 	  			</template>
 	  		</amp-list>
   		</ul>
-  	</amp-sidebar>
-  
+	</amp-sidebar>
+	  
+	<!-- 登陆后侧边栏 -->
+	<amp-sidebar id="sidebar-account" layout='nodisplay' side="right" class="categories-sidebar">
+		<div class="categories-sidebar-back-first" tabindex="0" role='button' on="tap:sidebar-account.close">
+			<i class="arrow-left"></i>
+			Main Menu
+		</div>
+		<ul class="sidebar-account-list">
+			<li class="sidebar_categories_list">
+				<a href="https://www.fs.com/index.php?main_page=my_dashboard">
+					<em></em><span>My Account</span>
+				</a>
+			</li>
+			<li class="sidebar_categories_list">
+				<a href="https://www.fs.com/index.php?main_page=edit_my_account">
+					<em></em><span>Account Setting</span>
+				</a>
+			</li>
+			<li class="sidebar_categories_list">
+				<a href="https://www.fs.com/index.php?main_page=manage_orders">
+					<em></em><span>Order History</span>
+				</a>
+			</li>
+			<li class="sidebar_categories_list">
+				<a href="https://www.fs.com/index.php?main_page=manage_addresses">
+					<em></em><span>Address Book</span>
+				</a>
+			</li>
+			<li class="sidebar_categories_list">
+				<a href="https://www.fs.com/index.php?main_page=my_cases">
+					<em></em><span>My Cases</span>
+				</a>
+				
+			</li>
+			<li class="sidebar_categories_list">
+				<a href="https://www.fs.com/index.php?main_page=inquiry_list">
+					<em></em><span>My Quotes</span>
+				</a>
+				
+			</li>
+		</ul>
+		<div class="sidebar-account-sign-out">
+			<a href="https://www.fs.com/index.php?main_page=logoff">
+				<em></em><span>Sign out</span>
+			</a>
+		</div>
+	</amp-sidebar>
 	<!-- 搜索侧边栏 -->
 	<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' class="search-sidebar">
 		<div class="search_top">
